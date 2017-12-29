@@ -1,0 +1,33 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <a class="btn" (click)="logOut()">Logout</a>
+      <a class="btn" (click)="loggedInInfo()">My Info</a>
+      <h1 class="text-center">Dashboard</h1>
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th>Customer</th>
+            <th>Status</th>
+            <th>Vehicle</th>
+            <th>Location</th>
+            <th>Assigned</th>
+            <th>Services</th>
+            <th>Created</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let order of orders" (click)="selectOrder(order._id)" style="cursor: pointer;">
+            <td>{{order.cusFirstName}} {{order.cusLastName}}</td>
+            <td>{{order.status | uppercase}}</td>
+            <td>{{order.cusCarMake}} {{order.cusCarModel}}, {{order.cusCarYear}}</td>
+            <td>{{order.location}}</td>
+            <td>{{order.cusAttendant}}</td>
+            <td><div *ngFor="let service of order.cusCarService">{{service.type}}</div></td>
+            <td>{{order.created_at | date:"medium"}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
