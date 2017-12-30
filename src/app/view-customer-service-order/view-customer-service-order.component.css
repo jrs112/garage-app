@@ -70,3 +70,9 @@
   border-width: 2px;
   border-color: rgb(0,62,83);
 }
+.approveSelectedBtn {
+  margin-right: 5px;
+}
+.declineBtn {
+  margin-right: 5px;
+}

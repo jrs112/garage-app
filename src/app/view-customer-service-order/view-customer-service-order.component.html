@@ -21,6 +21,15 @@
             <div *ngFor="let service of orderInfo?.cusCarService">
               <h5 *ngIf="service.status == 'recommended'" [ngClass]="{'clickedClass': isActive(service) }" class="infoColor hoverItem" (click)="selectService(service)"><li><strong><u>{{service.type}} (${{service.price}})-</u></strong><p class="descStyle">{{service.desc}}</p></li></h5>
             </div>
+            <div *ngIf="approveMessage != ''">
+              <div class="alert alert-success"><p>{{approveMessage}}</p><button class="btn btn-primary approveSelectedBtn" (click)="approveSelected()">Confirm Approval</button><button class="btn btn-danger" (click)="approveMessage = ''">Cancel</button></div>
+            </div>
+            <div *ngIf="declineMessage != ''">
+              <div class="alert alert-danger"><p>{{declineMessage}}</p><button class="btn btn-warning declineBtn">Decline Services</button><button class="btn btn-danger" (click)="declineMessage = ''">Cancel</button></div>
+            </div>
+            <div *ngIf="declineMessage == '' && approveMessage == ''">
+              <button class="btn btn-primary approveSelectedBtn" (click)="showApproveMsg()">Approve Selected</button><button class="btn btn-warning" (click)="showDeclineMsg()">Decline Selected</button>
+            </div>
           </div>
         </div>
         <div *ngIf="orderInfo?.status =='work complete'">

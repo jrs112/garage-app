@@ -12,6 +12,8 @@ export class ViewCustomerServiceOrderComponent implements OnInit {
   constructor(private customerServiceOrderService: CustomerServiceOrderService,
               private dataService: DataService) { }
     orderId = "";
+    declineMessage = "";
+    approveMessage = "";
     orderInfo: any;
     currentServiceArr = [];
     recommendServiceArr = [];
@@ -43,6 +45,7 @@ export class ViewCustomerServiceOrderComponent implements OnInit {
       (response) => {
         this.orderInfo = response[0];
         this.currentServiceArr = [];
+        this.recommendServiceArr = [];
         console.log(this.orderInfo);
         console.log(this.orderInfo.notes);
         for (var i = 0; i < response[0].cusCarService.length; i++) {
@@ -60,6 +63,18 @@ export class ViewCustomerServiceOrderComponent implements OnInit {
             this.declinedServiceArr.push(response[0].cusCarService[i]);
           }
         }
+        console.log("LENGTH OF REC: ", this.recommendServiceArr);
+        if (response[0].status == "waiting on customer" && this.recommendServiceArr.length == 0) {
+          var updateStatusObj = {
+            status: "pending"
+          }
+          this.dataService.updateServiceOrder(this.orderId, updateStatusObj)
+          .subscribe(
+            res => {
+              this.customerServiceOrderService.serviceOrderInfo.next(this.orderId);
+            }
+          )
+        }
         console.log(this.currentServiceArr);
         this.getCurrentCost();
     },
@@ -68,6 +83,8 @@ export class ViewCustomerServiceOrderComponent implements OnInit {
   }
 
   selectService(service) {
+    this.approveMessage = "";
+    this.declineMessage = "";
     for (var i = 0; i < this.selectedServicesArr.length; i++) {
       if (service == this.selectedServicesArr[i]) {
         var newSelectArray = this.selectedServicesArr.filter((index) => index != service);
@@ -98,7 +115,6 @@ export class ViewCustomerServiceOrderComponent implements OnInit {
   getSelectedTotalCost() {
     this.selectedTotalCost = 0;
     for (var i = 0; i < this.selectedServicesArr.length; i++) {
-      console.log("cost: ", this.selectedServicesArr[i].price);
       var serviceCost = parseFloat(this.selectedServicesArr[i].price);
       this.selectedTotalCost = this.selectedTotalCost + serviceCost;
     }
@@ -108,13 +124,10 @@ export class ViewCustomerServiceOrderComponent implements OnInit {
 
   getCurrentCost() {
     this.currentTotalCost = 0;
-    console.log("length ", this.currentServiceArr.length);
     for (var i = 0; i < this.currentServiceArr.length; i++) {
-      console.log("Current cost: ", this.currentServiceArr[i].price);
       var serviceCost = parseFloat(this.currentServiceArr[i].price);
       this.currentTotalCost = this.currentTotalCost + serviceCost;
     }
-    console.log("Current Total Cost: ", this.currentTotalCost);
     this.getTotalCost();
   }
 
@@ -129,6 +142,56 @@ export class ViewCustomerServiceOrderComponent implements OnInit {
     this.totalCurrentAndSelectCost = this.currentTotalCost + this.selectedTotalCost + this.taxWithSelected;
   }
 
+  showApproveMsg() {
+    this.approveMessage = "";
+    var chosenServices = "";
+    for (var i = 0; i < this.selectedServicesArr.length; i++) {
+      if(this.selectedServicesArr.length == 1) {
+        chosenServices += this.selectedServicesArr[i].type;
+      } else if(i == this.selectedServicesArr.length - 1) {
+        chosenServices += " and " + this.selectedServicesArr[i].type;
+      } else {
+      chosenServices += " " + this.selectedServicesArr[i].type + ",";
+      }
+    }
+    this.approveMessage = "Please confirm that you approve your mechanic to complete the " + chosenServices + ". This will bring your bill total to $" + this.totalCurrentAndSelectCost.toFixed(2) +".";
+
+
+  }
+
+  showDeclineMsg() {
+    this.declineMessage = "";
+    var chosenServices = "";
+    for (var i = 0; i < this.selectedServicesArr.length; i++) {
+      if(this.selectedServicesArr.length == 1) {
+        chosenServices += this.selectedServicesArr[i].type;
+      } else if(i == this.selectedServicesArr.length - 1) {
+        chosenServices += " and " + this.selectedServicesArr[i].type;
+      } else {
+      chosenServices += " " + this.selectedServicesArr[i].type + ",";
+      }
+    }
+    this.declineMessage = "Please confirm that you would like to decline the " + chosenServices + " recommended by your mechanic.";
+  }
+
+  approveSelected() {
+    this.approveMessage = "";
+    for (var i = 0; i < this.selectedServicesArr.length; i++) {
+      var updateObj = {
+        type: this.selectedServicesArr[i].type,
+        newStatus: "pending"
+      };
+      this.dataService.updateServiceOrderService(this.orderId, updateObj)
+      .subscribe(
+        res => {
+          console.log("service updated: ", res);
+        }
+      );
+    }
+    this.customerServiceOrderService.serviceOrderInfo.next(this.orderId);
+    this.selectedServicesArr = [];
+    console.log("CURRENT SERVICES ARRAY: ", this.currentServiceArr);
+  }
 
 
 
