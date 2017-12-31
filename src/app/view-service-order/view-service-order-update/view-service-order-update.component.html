@@ -10,7 +10,7 @@
       <div *ngIf = "addErrMsg != ''" class="alert alert-danger">
         <p>{{addErrMsg}}</p>
       </div>
-      <div *ngIf = "addDecErrMsg != ''" class="alert alert-danger">
+      <div *ngIf = "addDecErrMsg != ''" class="alert alert-danger text-center">
         <p>{{addDecErrMsg}}</p><button class="btn btn-warning" (click)="changeToRec(declineToRecType)">Confirm</button>
       </div>
     </div>
@@ -20,7 +20,7 @@
       <div class="form-group">
         <label for="recCarService">Update Recommended Services:</label>
         <select type="text" id="recCarService" class="form-control" ngModel name="recCarService" required>
-          <option *ngFor="let service of curAddServiceArray" value='{"type":"{{service.type}}","price":"{{service.price}}","desc":"{{service.desc}}","status":"recommended"}'>{{service.type}} ({{service.status}})</option>
+          <option *ngFor="let service of curAddServiceArray" value='{"type":"{{service.type}}","price":"{{service.price}}","desc":"{{service.desc}}","status":"recommended"}'>{{service.type}}</option>
         </select>
         <button [disabled]="!recserv.valid" (click)="approveRecServ(recserv); recserv.reset()" type="button" class="btn btn-info">Approve Service</button>
         <button [disabled]="!recserv.valid" (click)="declineRecServ(recserv); recserv.reset()" type="button" class="btn btn-warning">Decline Service</button>

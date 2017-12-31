@@ -1,8 +1,5 @@
 
-#firstrow{
-    margin-bottom: 1rem;
-}
-#signupcustomer{
+.signupcustomer{
     background-color: black;
     color: yellow;
 }
@@ -10,16 +7,16 @@
     background-color: white;
     color: black;
 }
-#findcustomer{
+.findcustomer{
     background-color: #00788C;
     color: #1D1160;
-    
+
 }
 #button2{
     background-color: #ffffff;
     color:  #888B8D;
 }
-#createserviceorder{
+.createserviceorder{
     background-color: #008248;
     color: #ffffff;
 
@@ -28,7 +25,7 @@
     background-color: #ffffff;
     color:  #008248;
 }
-#servicedashboard{
+.servicedashboard{
     background-color: #B72B35;
     color: #111111
 }
@@ -37,7 +34,7 @@
     color: #A4A9AD
 
 }
-#usersignup{
+.usersignup{
     background-color: #552583;
     color: #FDB927;
 }
@@ -45,7 +42,7 @@
     background-color: #FFFFFF;
     color: #000000;
 }
-#addservice {
+.addservice {
     background-color: #0E3386;
     color: #CC3433;
 
@@ -54,10 +51,23 @@
     background-color: #ffffff;
     color: #CC3433;
 }
-.container{
-    margin-left: 1.50rem;
+.rowMargin{
+  margin-top: 15px;
 }
-.card{
-    height: 13rem;
-    margin-right: 1rem;
+.cardPadding{
+  padding: 40px;
+}
+.hoverStyle:hover {
+  background: rgb(228,188,54);
+  cursor: pointer;
+  color: rgb(0,62,83);
+  border-style: solid;
+  border-width: 2px;
+  border-color: rgb(141,172,166)
+}
+.mainHeader{
+  font-family: 'PT Serif', serif;
+}
+.cardHeader{
+  font-family: 'Bree Serif', serif;
 }

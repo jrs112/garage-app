@@ -1,102 +1,61 @@
 
 <div class = 'jumbotron'>
-   
+
   <!-- Begin page content -->
-  
- 
+
+
 
   <div class = "container">
-      <h1>Main Menu</h1>
-  <div class = 'row center' id = 'firstrow'>
-    <div class>
-      <a routerLink="/signupform">
-        <div class="card" style="width: 20rem;" id=signupcustomer>
-
-          <img class="card-img-top">
-          <div class="card-body">
-            <h4 class="card-title">Sign Up Customer</h4>
-            <p class="card-text">Sign up a Customer and Add to Database</p>
-            <a routerLink="/signupform" class="btn btn-primary" id='button1'>Go To Sign Up Customer</a>
-          </div>
-        </div>
-      </a>
+    <div class="row">
+      <div class="col-md-12">
+        <h1 class="text-center mainHeader"><strong>Main Menu</strong></h1>
+      </div>
     </div>
-  <div>
-    <p></p>
-  </div>
-  
-  <div>
-    <a routerLink="/findcustomer">
-      <div class="card" style="width: 20rem;" id=findcustomer>
-
-        <img class="card-img-top">
+  <div class = 'row'>
+    <div class='col-md-4'>
+      <div class="card rowMargin cardPadding hoverStyle signupcustomer" routerLink="/signupform">
         <div class="card-body">
-          <h4 class="card-title">Find Customer</h4>
-          <p class="card-text">Find Current Customer</p>
-          <br>
-          <a routerLink="/findcustomer" class="btn btn-primary" id='button2'>Go To Find Customer</a>
+          <h4 class="card-title text-center cardHeader"><div>Sign Up</div> Customer</h4>
         </div>
       </div>
-    </a>
+    </div>
+  <div class="col-md-4">
+    <div class="card rowMargin cardPadding hoverStyle findcustomer" routerLink="/findcustomer">
+      <div class="card-body">
+        <h4 class="card-title text-center cardHeader"><div>Find</div> Customer</h4>
+      </div>
+    </div>
   </div>
-  <div>
-      <a routerLink="/createserviceorder">
-        <div class="card" style="width: 20rem;" id=createserviceorder>
-  
-          <img class="card-img-top">
-          <div class="card-body">
-            <h4 class="card-title">Create a Service Order</h4>
-            <p class="card-text">Create a Service Order</p>
-            <br>
-            <a routerLink="/createserviceorder" class="btn btn-primary" id='button3'>Go To Create Service Order</a>
-          </div>
-        </div>
-      </a>
-    </div>
-</div><!--end of row -->
-<div class = row>
-  <div>
-      <a routerLink="/servicedashboard">
-        <div class="card" style="width: 20rem;" id=servicedashboard>
-  
-          <img class="card-img-top">
-          <div class="card-body">
-            <h4 class="card-title">View Service Dashboard</h4>
-            <p class="card-text">View Service Statuses</p>
-            <br>
-            <a routerLink="/servicedashboard" class="btn btn-primary" id='button4'>Go To Services Dashboard</a>
-          </div>
-        </div>
-      </a>
-    </div>
-    <div>
-        <a routerLink="/usersignup">
-          <div class="card" style="width: 20rem;" id=usersignup>
-    
-            <img class="card-img-top">
-            <div class="card-body">
-              <h4 class="card-title">Employee User Sign Up</h4>
-              <p class="card-text">Employee User Sign Up</p>
-              <br>
-              <a routerLink="/usersignup" class="btn btn-primary" id='button5'>Go To Employee User Sign Up</a>
-            </div>
-          </div>
-        </a>
+  <div class="col-md-4">
+    <div class="card rowMargin cardPadding hoverStyle createserviceorder" routerLink="/createserviceorder">
+      <div class="card-body">
+        <h4 class="card-title text-center cardHeader">Create a Service Order</h4>
       </div>
-      <div>
-          <a routerLink="/addservice">
-            <div class="card" style="width: 20rem;" id=addservice>
-      
-              <img class="card-img-top">
-              <div class="card-body">
-                <h4 class="card-title">Add Service</h4>
-                <p class="card-text">Add Service</p>
-                <br>
-                <a routerLink="/addservice" class="btn btn-primary" id='button6'>Go To Add Service</a>
-              </div>
-            </div>
-          </a>
-        </div>
+    </div>
+  </div>
+</div><!--end of row -->
+<div class = "row">
+  <div class="col-md-4">
+    <div class="card rowMargin cardPadding hoverStyle servicedashboard" routerLink="/servicedashboard">
+      <div class="card-body">
+        <h4 class="card-title text-center cardHeader">View Service Dashboard</h4>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="card rowMargin usersignup cardPadding hoverStyle" routerLink="/usersignup">
+      <div class="card-body">
+        <h4 class="card-title text-center cardHeader">Employee User Sign Up</h4>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="card rowMargin cardPadding addservice hoverStyle" routerLink="/addservice">
+      <div class="card-body">
+        <h4 class="card-title text-center cardHeader"><div>Add</div> Service</h4>
+      </div>
+    </div>
+  </div>
 </div><!--end of row -->
 </div> <!-- /container -->
 
