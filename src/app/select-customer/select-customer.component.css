@@ -1,0 +1,11 @@
+.btnMargin {
+  margin-top: 7px;
+}
+.defaultCardStyle{
+  background: rgb(245,245,245);
+  padding: 10px;
+  margin-top: 15px;
+  border-style: solid;
+  border-width: 2px;
+  border-color: black;
+}

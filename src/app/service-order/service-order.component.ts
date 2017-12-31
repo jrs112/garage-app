@@ -9,11 +9,15 @@ declare var $: any;
   styleUrls: ['./service-order.component.css']
 })
 export class ServiceOrderComponent implements OnInit {
-    cusCarService = [];
-    cusCarServiceOne = "";
-    cusCarServiceArray = [{type: "", price: "", desc: "", status:""}];
-    count = 0;
+
   constructor(private dataService: DataService, private addServiceService: AddServiceService) { }
+  cusCarService = [];
+  cusCarServiceOne = "";
+  cusCarServiceArray = [{type: "", price: "", desc: "", status:""}];
+  count = 0;
+  allEmployeesArray = [];
+  successMessage = "";
+  errorMsg = "";
 
   ngOnInit() {
     this.addServiceService.getAllServices()
@@ -27,13 +31,15 @@ export class ServiceOrderComponent implements OnInit {
       },
       (error) => console.log(error)
       );
+    this.loadAllEmployees();
   }
 
-  successMessage = "";
+
 
   onSubmit(form) {
     // remove empty service fields and then post service
-
+    this.successMessage = "";
+    this.errorMsg = "";
     this.cusCarService = [];
     var jsonString = form.value.cusCarServiceOne;
     console.log("STRING ", jsonString);
@@ -47,6 +53,12 @@ export class ServiceOrderComponent implements OnInit {
       // var jsonValString = "'" + serviceValue + "'";
       // console.log("json:", jsonValString);
       var jsonValue = JSON.parse(serviceValue);
+      for (var j = 0; j < this.cusCarService.length; j++) {
+        if(jsonValue.type == this.cusCarService[j].type) {
+          this.errorMsg = "You cannot enter duplicate services to a service order.";
+          return;
+        }
+      }
 
       if (jsonValue.type != "") {
         this.cusCarService.push(jsonValue);
@@ -69,6 +81,8 @@ export class ServiceOrderComponent implements OnInit {
       (response) => {
         if (response.length > 0) {
         console.log("already in database");
+        $("#appendItemDiv").empty();
+        form.reset();
       } else {
         const customerInfo = {
           fName: form.value.cusFirstName,
@@ -84,6 +98,8 @@ export class ServiceOrderComponent implements OnInit {
         this.dataService.addCustomer(customerInfo)
         .subscribe(res => {
           console.log("this was a success");
+          $("#appendItemDiv").empty();
+          form.reset();
         })
       }
       },
@@ -91,6 +107,18 @@ export class ServiceOrderComponent implements OnInit {
       );
 
 
+  }
+
+  loadAllEmployees() {
+    this.dataService.getAllEmployees()
+    .subscribe(
+      res => {
+        console.log("Employees ", res);
+        for (var i = 0; i < res.length; i++) {
+          this.allEmployeesArray.push(res[i].employeeName);
+        }
+      }
+    )
   }
 
   addServiceField() {

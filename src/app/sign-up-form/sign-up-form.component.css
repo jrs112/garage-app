@@ -1,8 +1,11 @@
-.ng-valid[required], .ng-valid.required  {
-    border-left: 5px solid #42A948; /* green */
-  }
-  
-  .ng-invalid:not(form)  {
-    border-left: 5px solid #a94442; /* red */
-  }
-  
+.btnMargin {
+  margin-top: 7px;
+}
+.defaultCardStyle{
+  background: rgb(245,245,245);
+  padding: 10px;
+  margin-top: 15px;
+  border-style: solid;
+  border-width: 2px;
+  border-color: black;
+}

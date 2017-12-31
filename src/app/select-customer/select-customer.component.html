@@ -1,13 +1,15 @@
 <div class="container">
   <div class="row">
     <div class="col-md-12">
-      <form (ngSubmit)="onSubmit(f)" #f="ngForm">
-        <label for="phoneNumber">Customer Phone Number:</label>
-        <input type="text" id="custSearchPhone" class="form-control" ngModel name="custSearchPhone" required minlength="10" maxlength="10">
-        <button class="btn btn-primary" type="submit" [disabled]="!f.valid">Submit</button>
-      </form>
-      <div *ngIf="errorMsg != ''">
-        <div class="alert alert-danger">{{errorMsg}}</div>
+      <div class="card defaultCardStyle text-center">
+        <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+          <h2 class="headerFont"><strong>Look Up Customer By Phone Number</strong></h2>
+          <input type="text" id="custSearchPhone" class="form-control" ngModel name="custSearchPhone" required minlength="10" maxlength="10">
+          <button class="btn btn-primary btnMargin" type="submit" [disabled]="!f.valid">Submit</button>
+        </form>
+        <div *ngIf="errorMsg != ''">
+          <div class="alert alert-danger">{{errorMsg}}</div>
+        </div>
       </div>
     </div>
   </div>
