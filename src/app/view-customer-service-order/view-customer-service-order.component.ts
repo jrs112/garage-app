@@ -174,12 +174,13 @@ export class ViewCustomerServiceOrderComponent implements OnInit {
     this.declineMessage = "Please confirm that you would like to decline the " + chosenServices + " recommended by your mechanic.";
   }
 
-  approveSelected() {
+  updateSelectedService(newStatus) {
     this.approveMessage = "";
+    this.declineMessage = "";
     for (var i = 0; i < this.selectedServicesArr.length; i++) {
       var updateObj = {
         type: this.selectedServicesArr[i].type,
-        newStatus: "pending"
+        newStatus: newStatus
       };
       this.dataService.updateServiceOrderService(this.orderId, updateObj)
       .subscribe(
@@ -192,7 +193,5 @@ export class ViewCustomerServiceOrderComponent implements OnInit {
     this.selectedServicesArr = [];
     console.log("CURRENT SERVICES ARRAY: ", this.currentServiceArr);
   }
-
-
 
 }

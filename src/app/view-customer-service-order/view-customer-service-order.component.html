@@ -22,10 +22,10 @@
               <h5 *ngIf="service.status == 'recommended'" [ngClass]="{'clickedClass': isActive(service) }" class="infoColor hoverItem" (click)="selectService(service)"><li><strong><u>{{service.type}} (${{service.price}})-</u></strong><p class="descStyle">{{service.desc}}</p></li></h5>
             </div>
             <div *ngIf="approveMessage != ''">
-              <div class="alert alert-success"><p>{{approveMessage}}</p><button class="btn btn-primary approveSelectedBtn" (click)="approveSelected()">Confirm Approval</button><button class="btn btn-danger" (click)="approveMessage = ''">Cancel</button></div>
+              <div class="alert alert-success"><p>{{approveMessage}}</p><button class="btn btn-primary approveSelectedBtn" (click)="updateSelectedService('pending')">Confirm Approval</button><button class="btn btn-danger" (click)="approveMessage = ''">Cancel</button></div>
             </div>
             <div *ngIf="declineMessage != ''">
-              <div class="alert alert-danger"><p>{{declineMessage}}</p><button class="btn btn-warning declineBtn">Decline Services</button><button class="btn btn-danger" (click)="declineMessage = ''">Cancel</button></div>
+              <div class="alert alert-danger"><p>{{declineMessage}}</p><button class="btn btn-warning declineBtn" (click)="updateSelectedService('declined')">Decline Services</button><button class="btn btn-danger" (click)="declineMessage = ''">Cancel</button></div>
             </div>
             <div *ngIf="declineMessage == '' && approveMessage == ''">
               <button class="btn btn-primary approveSelectedBtn" (click)="showApproveMsg()">Approve Selected</button><button class="btn btn-warning" (click)="showDeclineMsg()">Decline Selected</button>
@@ -92,7 +92,7 @@
           <h3 class="headerColor"><u>Tax</u></h3>
           <h5 class="greenColor">Current Services @ 7.5%: ${{taxCurrent | number: "1.2-2"}}</h5>
           <div *ngIf="selectedServicesArr.length > 0">
-            <h5 class="infoColor">Current and Selected Services @ 7.5% ${{taxWithSelected | number: "1.2-2"}}</h5>
+            <h5 class="infoColor">Current and Selected Services @ 7.5%: ${{taxWithSelected | number: "1.2-2"}}</h5>
           </div>
           <hr>
           <h3 class="headerColor"><u>Total</u></h3>

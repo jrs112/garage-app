@@ -11,8 +11,13 @@
   <div *ngIf="currentServiceArr.length > 0">
     <h3 class="headerColor"><u>Recommended Services</u></h3>
     <div *ngFor="let service of orderInfo?.cusCarService" >
-      <h5 class="yellowColor"><li *ngIf="service.status == 'declined'">{{service.status | uppercase}}: {{service.type}}</li></h5>
       <h5 class="infoColor"><li *ngIf="service.status == 'recommended'">{{service.status | uppercase}}: {{service.type}}</li></h5>
+    </div>
+  </div>
+  <div *ngIf="declinedServiceArr.length > 0">
+    <h3 class="headerColor"><u>Declined Services</u></h3>
+    <div *ngFor="let service of orderInfo?.cusCarService" >
+      <h5 class="yellowColor"><li *ngIf="service.status == 'declined'">{{service.status | uppercase}}: {{service.type}}</li></h5>
     </div>
   </div>
   <h3 class="headerColor"><u>General Info</u></h3>

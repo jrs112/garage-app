@@ -15,6 +15,7 @@ export class ViewServiceOrderInfoComponent implements OnInit {
     orderNotes = [];
     orderInfo: any;
     currentServiceArr = [];
+    declinedServiceArr = [];
   ngOnInit() {
     this.orderId = this.serviceOrderService.currentServiceOrderInfo();
 
@@ -30,14 +31,20 @@ export class ViewServiceOrderInfoComponent implements OnInit {
     this.dataService.getServiceOrder(this.orderId)
     .subscribe(
       (response) => {
+        this.declinedServiceArr = [];
         this.orderInfo = response[0];
         this.orderNotes = response[0].notes;
         this.currentServiceArr = [];
         console.log(this.orderInfo);
         console.log(this.orderInfo.notes);
         for (var i = 0; i < response[0].cusCarService.length; i++) {
-          if(response[0].cusCarService[i].status == "recommended" || response[0].cusCarService[i].status === "declined") {
+          if(response[0].cusCarService[i].status == "recommended") {
             this.currentServiceArr.push(response[0].cusCarService[i]);
+          }
+        }
+        for (var i = 0; i < response[0].cusCarService.length; i++) {
+          if(response[0].cusCarService[i].status === "declined") {
+            this.declinedServiceArr.push(response[0].cusCarService[i]);
           }
         }
         console.log(this.currentServiceArr);

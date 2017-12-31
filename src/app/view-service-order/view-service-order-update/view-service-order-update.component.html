@@ -10,6 +10,9 @@
       <div *ngIf = "addErrMsg != ''" class="alert alert-danger">
         <p>{{addErrMsg}}</p>
       </div>
+      <div *ngIf = "addDecErrMsg != ''" class="alert alert-danger">
+        <p>{{addDecErrMsg}}</p><button class="btn btn-warning" (click)="changeToRec(declineToRecType)">Confirm</button>
+      </div>
     </div>
   </form>
   <div *ngIf="curAddServiceArray.length > 0">

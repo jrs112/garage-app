@@ -18,9 +18,13 @@ export class ViewServiceOrderUpdateComponent implements OnInit {
   curCarServiceArray = [];
   allCarServiceArray = [];
   curAddServiceArray = [];
+  declineServiceArray = [];
   allEmployeesArray = [""];
 
+
   addErrMsg = "";
+  addDecErrMsg = "";
+  declineToRecType = "";
 
   ngOnInit() {
     this.orderId = this.serviceOrderService.currentServiceOrderInfo();
@@ -91,8 +95,13 @@ export class ViewServiceOrderUpdateComponent implements OnInit {
       (response) => {
         console.log("Array for services: ", response[0]);
         for (var i = 0; i < response[0].cusCarService.length; i++) {
-          if(response[0].cusCarService[i].status == "recommended" || response[0].cusCarService[i].status == "declined") {
+          if(response[0].cusCarService[i].status == "recommended") {
             this.curAddServiceArray.push(response[0].cusCarService[i]);
+          }
+        }
+        for (var i = 0; i < response[0].cusCarService.length; i++) {
+          if(response[0].cusCarService[i].status == "declined") {
+            this.declineServiceArray.push(response[0].cusCarService[i]);
           }
         }
     },
@@ -171,6 +180,14 @@ export class ViewServiceOrderUpdateComponent implements OnInit {
         return;
       }
     }
+    for (var i = 0; i < this.declineServiceArray.length; i++) {
+      if (jsonServiceObj.type === this.declineServiceArray[i].type) {
+        this.declineToRecType = jsonServiceObj.type
+        this.addDecErrMsg = this.declineToRecType + " has already been declined by the customer.  Are you sure you want to recommend it again?";
+        return;
+      }
+    }
+    console.log("WE ARE GETTTING HERE");
     var addServiceObj = {
       cusCarService: jsonServiceObj
     };
@@ -185,6 +202,7 @@ export class ViewServiceOrderUpdateComponent implements OnInit {
     )
   }
 
+
   approveRecServ(form) {
     var jsonString = form.value.recCarService;
     console.log("json String: ", jsonString);
@@ -197,6 +215,22 @@ export class ViewServiceOrderUpdateComponent implements OnInit {
         this.serviceOrderService.serviceOrderInfo.next(this.orderId);
         this.getCurrentServices(this.orderId);
         this.getCurrentRecServices(this.orderId);
+      }
+    )
+  }
+
+  changeToRec(type) {
+    var serviceUpdateObj = {
+      type: type,
+      newStatus: "recommended"
+    };
+    this.dataService.updateServiceOrderService(this.orderId, serviceUpdateObj)
+    .subscribe(
+      res => {
+        this.serviceOrderService.serviceOrderInfo.next(this.orderId);
+        this.getCurrentRecServices(this.orderId);
+        this.addDecErrMsg = "";
+        return;
       }
     )
   }
