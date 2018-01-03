@@ -13,7 +13,7 @@ const flash = require("connect-flash");
 var mongoUser = process.env.Mongo_User;
 var mongoPassword = process.env.Mongo_Password;
 
-console.log("USER: ", mongoUser, " ", mongoPassword)
+
 // Connect
 const db = "mongodb://" + mongoUser + ":" + mongoPassword + "@ds239587.mlab.com:39587/garage-app";
 useMongoClient: true;
