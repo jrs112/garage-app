@@ -1,0 +1,46 @@
+.defaultCardStyle{
+  background: rgb(245,245,245);
+  padding: 10px;
+  margin-top: 15px;
+  border-style: solid;
+  border-width: 2px;
+  border-color: black;
+}
+
+.goldBack{
+  background: rgb(228,188,54);
+  border-style: solid;
+  border-color: black;
+  border-width: 2px;
+}
+
+.rowStyle {
+  background: rgb(0,62,83);
+  color: rgb(210,233,225);
+  cursor: pointer;
+}
+.pendingOrderStyle {
+  color: rgb(119,181,254);
+}
+.progressOrderStyle {
+  color: rgb(231,35,48);
+}
+.waitCustomerOrderStyle {
+  color: rgb(216,176,140);
+}
+.waitCustomerOrderStyle:hover {
+  color: rgb(216,176,140);
+}
+.waitPartsOrderStyle {
+  color: rgb(255,154,0);
+}
+.workCompOrderStyle {
+  color: rgb(172,189,55);
+}
+.rowStyle:hover{
+  background: rgb(210,233,225);
+  color: rgb(0,62,83);
+  border-style: solid;
+  border-width: 1px;
+  border-color: rgb(228,188,54);
+}

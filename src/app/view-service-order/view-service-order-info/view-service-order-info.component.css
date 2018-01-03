@@ -1,6 +1,9 @@
 .headerColor {
   color: rgb(0,62,83);
 }
+.fireHeadColor {
+  color: rgb(204,47,18);
+}
 
 .greenColor {
   color: green;
@@ -19,5 +22,35 @@
 }
 
 .infoColor {
-  color: rgb(101,191,206);
+  color: rgb(7,157,163);
+}
+.viewServiceOrderStyle {
+  background: rgb(245,245,245);
+  padding: 10px;
+  border-style: solid;
+  border-width: 2px;
+  border-color: black;
+}
+.tabNavStyle {
+  margin-top: 15px;
+}
+.pillStyle {
+  cursor: pointer;
+  background: rgb(0,62,83);
+}
+.pillColor {
+  color: rgb(228,188,54);
+}
+
+.bodyFont {
+  font-family: 'Bree Serif', serif;
+}
+.bodyColor {
+  color: rgb(29,89,179);
+}
+.priceFont {
+  font-family: 'Tinos', serif;
+}
+.statusFont {
+  font-family: 'Roboto Slab', serif;
 }

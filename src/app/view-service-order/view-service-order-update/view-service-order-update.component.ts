@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from "@angular/router";
 import { ServiceOrderService } from "../../service-order.service";
 import { DataService } from "../../data.service";
 import { AddServiceService } from "../../add-service.service";
@@ -11,7 +12,9 @@ import { AddServiceService } from "../../add-service.service";
 export class ViewServiceOrderUpdateComponent implements OnInit {
 
   constructor(private serviceOrderService: ServiceOrderService,
-              private dataService: DataService, private addServiceService: AddServiceService) { }
+              private dataService: DataService,
+              private addServiceService: AddServiceService,
+              private router: Router) { }
 
   orderId = "";
   orderNotes = [];
@@ -25,9 +28,14 @@ export class ViewServiceOrderUpdateComponent implements OnInit {
   addErrMsg = "";
   addDecErrMsg = "";
   declineToRecType = "";
+  toggleUpdateView = true;
 
   ngOnInit() {
     this.orderId = this.serviceOrderService.currentServiceOrderInfo();
+    if (this.orderId == "") {
+      this.router.navigate(["/servicedashboard"]);
+      return;
+    }
     this.getCurrentServices(this.orderId);
     this.getCurrentRecServices(this.orderId);
     this.loadAllServices();
@@ -166,6 +174,7 @@ export class ViewServiceOrderUpdateComponent implements OnInit {
 
   addToProposeServArray(form) {
     this.addErrMsg = "";
+    this.addDecErrMsg = "";
     var jsonString = form.value.newCarService;
     var jsonServiceObj = JSON.parse(jsonString);
     for (var i = 0; i < this.curCarServiceArray.length; i++) {

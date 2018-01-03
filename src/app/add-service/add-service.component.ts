@@ -10,14 +10,19 @@ export class AddServiceComponent implements OnInit {
 
   constructor(private _addServiceService: AddServiceService) { }
   serverMessage = '';
+  serviceAdded = false;
   ngOnInit() {
   }
   onSubmit(f){
+    this.serviceAdded = false;
+    this.serverMessage = '';
     this._addServiceService.postService(f.value)
     .subscribe(info => {
       if (info.message) {
         this.serverMessage = info.message;
+      } else {
+        this.serviceAdded = true;
       }
-}
+      }
     )}
   }

@@ -83,7 +83,7 @@
           <div class="text-center">
             <h3 class="headerColor"><u>Selected Services</u></h3>
             <div *ngFor="let service of selectedServicesArr">
-              <h5 class="infoColor"><li>{{service.type}}- ${{service.price}}</li></h5>
+              <h5 class="infoColor"><li>{{service.type}}- ${{service.price | number: "1.2-2"}}}</li></h5>
             </div>
           </div>
         </div>

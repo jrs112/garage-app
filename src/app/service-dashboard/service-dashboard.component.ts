@@ -19,7 +19,13 @@ export class ServiceDashboardComponent implements OnInit {
   ngOnInit() {
       this.dataService.getServiceOrders()
       .subscribe(
-        (order: any[]) => this.orders = order,
+        (order: any[]) => {
+          for (var i = 0; i < order.length; i++) {
+            if(order[i].status != "closed") {
+              this.orders.push(order[i]);
+            }
+          }
+        },
         (error) => console.log(error)
         );
   }

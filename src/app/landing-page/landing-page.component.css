@@ -55,7 +55,8 @@
   margin-top: 15px;
 }
 .cardPadding{
-  padding: 40px;
+  padding-top: 50px;
+  padding-bottom: 50px;
 }
 .hoverStyle:hover {
   background: rgb(228,188,54);

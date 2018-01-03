@@ -1,10 +1,11 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-12">
+    <div class="col"></div>
+    <div class="col-md-7">
       <div class="card defaultCardStyle text-center">
         <form (ngSubmit)="onSubmit(f)" #f="ngForm">
           <h2 class="headerFont"><strong>Look Up Customer By Phone Number</strong></h2>
-          <input type="text" id="custSearchPhone" class="form-control" ngModel name="custSearchPhone" required minlength="10" maxlength="10">
+          <input type="text" id="custSearchPhone" class="form-control" ngModel name="custSearchPhone" placeholder="Enter 10 Digit Phone Number" required minlength="10" maxlength="10">
           <button class="btn btn-primary btnMargin" type="submit" [disabled]="!f.valid">Submit</button>
         </form>
         <div *ngIf="errorMsg != ''">
@@ -12,5 +13,6 @@
         </div>
       </div>
     </div>
+    <div class="col"></div>
   </div>
 </div>
