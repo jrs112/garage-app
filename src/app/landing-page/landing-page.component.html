@@ -1,4 +1,4 @@
-
+    <app-header></app-header>
 <div class = 'jumbotron'>
 
   <!-- Begin page content -->
@@ -43,16 +43,20 @@
     </div>
   </div>
   <div class="col-md-4">
-    <div class="card rowMargin usersignup cardPadding hoverStyle" routerLink="/usersignup">
-      <div class="card-body">
-        <h4 class="card-title text-center cardHeader"><div>Employee</div> Sign Up</h4>
+    <div *ngIf="isAdmin">
+      <div class="card rowMargin usersignup cardPadding hoverStyle" routerLink="/usersignup">
+        <div class="card-body">
+          <h4 class="card-title text-center cardHeader"><div>Employee</div> Sign Up</h4>
+        </div>
       </div>
     </div>
   </div>
   <div class="col-md-4">
-    <div class="card rowMargin cardPadding addservice hoverStyle" routerLink="/addservice">
-      <div class="card-body">
-        <h4 class="card-title text-center cardHeader"><div>Add</div> Service</h4>
+    <div *ngIf="isAdmin">
+      <div class="card rowMargin cardPadding addservice hoverStyle" routerLink="/addservice">
+        <div class="card-body">
+          <h4 class="card-title text-center cardHeader"><div>Add</div> Service</h4>
+        </div>
       </div>
     </div>
   </div>

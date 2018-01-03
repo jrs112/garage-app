@@ -1,52 +1,53 @@
+<app-header></app-header>
 <div class="card defaultCardStyle">
   <h1 class="headerFont text-center"><strong>Sign Up Customer</strong></h1>
 
   <form (ngSubmit)='onSubmit(s)' #s='ngForm'>
 
       <div class='form-group'>
-          <label for="fName">First Name:</label>
+          <label for="fName"><strong>First Name:</strong></label>
           <input id='fName' type="text" class='form-control' ngModel name='fName' required [(ngModel)]='s.fName' #fName='ngModel'>
           <div *ngIf="fName.invalid && (fName.dirty || fName.touched)" class="alert alert-danger">
               <div *ngIf="fName.errors.required"> First Name is required.</div>
           </div>
       </div>
       <div class='form-group'>
-      <label for="lName">Last Name:</label>
+      <label for="lName"><strong>Last Name:</strong></label>
       <input type="text" id='lName' class='form-control' ngModel name='lName' required [(ngModel)]='s.lName' #lName='ngModel'>
       <div *ngIf="lName.invalid && (lName.dirty || lName.touched)" class="alert alert-danger">
           <div *ngIf="lName.errors.required"> Last Name is required.</div>
       </div>
       </div>
       <div class='form-group'>
-        <label for="phNumber">Phone Number:</label>
+        <label for="phNumber"><strong>Phone Number:</strong></label>
         <input type="text" id='phNumber' class='form-control' ngModel name='phNumber'>
       </div>
       <div class='form-group'>
-        <label for="email">Email address:</label>
+        <label for="email"><strong>Email address:</strong></label>
         <input type="email" id='email' class='form-control' ngModel name='email'>
       </div>
       <div class='form-group'>
-        <label for="make">Make:</label>
+        <label for="make"><strong>Make:</strong></label>
         <input type="text" id='make' class='form-control' ngModel name='make'>
       </div>
       <div class='form-group'>
-        <label for="model">Model:</label>
+        <label for="model"><strong>Model:</strong></label>
         <input type="text" id='model' class='form-control' ngModel name='model'>
       </div>
       <div class='form-group'>
-        <label for="vin">VIN:</label>
+        <label for="vin"><strong>VIN:</strong></label>
         <input type="text" id='vin' class='form-control' ngModel name='vin'>
       </div>
       <div class='form-group'>
-        <label for="year">Year:</label>
+        <label for="year"><strong>Year:</strong></label>
         <input type="text" id='year' class='form-control' ngModel name='year'>
       </div>
       <div class='form-group'>
-        <label for="engine">Engine:</label>
+        <label for="engine"><strong>Engine:</strong></label>
         <input type="text" id='engine' class='form-control' ngModel name='engine'>
       </div>
       <div class='form-group'>
-        <label for="tire">Tire:</label>
+        <label for="tire"><strong>Tire:</strong></label>
         <input type="text" id='tire' class='form-control' ngModel name='tire'>
       </div>
 

@@ -10,18 +10,25 @@ export class CustomerCreateAccountComponent implements OnInit {
 
   constructor(private dataService: DataService,
               private router: Router) { }
-
+  errMsg = "";
   ngOnInit() {
   }
 
   onSubmit(form) {
-    console.log(form.value);
+    this.errMsg = "";
+    if(form.value.password != form.value.password2) {
+      this.errMsg = "The passwords entered do not match.  Please try again.";
+      return;
+    }
     this.dataService.signUpCusUser(form.value)
     .subscribe(info => {
       console.log(info.url);
       let urlPath = info.url;
       let urlPathArray = urlPath.split('/');
       let lastSegment = urlPathArray[urlPathArray.length - 1];
+      if(lastSegment == "customerlanding") {
+        this.errMsg = "There is already an account with this email.";
+      }
       console.log(lastSegment);
 
       this.router.navigate([lastSegment]);

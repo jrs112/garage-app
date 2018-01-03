@@ -11,8 +11,23 @@ export class LandingPageComponent implements OnInit {
 
   constructor(private dataService: DataService,
               private router: Router) { }
+  isAdmin = false;
 
   ngOnInit() {
+    this.isAdmin = false;
+    this.dataService.getUserInfo()
+    .subscribe(
+      (req) => {
+        console.log("role: ", req.local.role);
+        if (req.local.role === "Admin") {
+          console.log("Is Admin");
+          this.isAdmin = true;
+        } else {
+          console.log("Is not admin");
+        }
+      },
+      (error) => console.log(error)
+      );
   }
 
   onSubmit(form) {

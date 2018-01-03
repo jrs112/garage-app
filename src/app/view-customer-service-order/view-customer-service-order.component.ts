@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CustomerServiceOrderService } from "../customer-service-order.service";
 import { DataService } from "../data.service";
+import { Router } from "@angular/router";
 
 @Component({
   selector: 'app-view-customer-service-order',
@@ -10,7 +11,8 @@ import { DataService } from "../data.service";
 export class ViewCustomerServiceOrderComponent implements OnInit {
 
   constructor(private customerServiceOrderService: CustomerServiceOrderService,
-              private dataService: DataService) { }
+              private dataService: DataService,
+              private router: Router) { }
     orderId = "";
     declineMessage = "";
     approveMessage = "";
@@ -29,7 +31,10 @@ export class ViewCustomerServiceOrderComponent implements OnInit {
     selectedArray = [];
   ngOnInit() {
     this.orderId = this.customerServiceOrderService.currentServiceOrderInfo();
-
+    if (this.orderId == "") {
+      this.router.navigate(["/customerportal"]);
+      return;
+    }
     this.getOrderInfo(this.orderId);
     this.customerServiceOrderService.serviceOrderInfo.subscribe(
       (id) => {

@@ -1,27 +1,27 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from "../data.service";
 import { Router } from "@angular/router";
+
 @Component({
-  selector: 'app-header',
-  templateUrl: './header.component.html',
-  styleUrls: ['./header.component.css']
+  selector: 'app-customer-header',
+  templateUrl: './customer-header.component.html',
+  styleUrls: ['./customer-header.component.css']
 })
-export class HeaderComponent implements OnInit {
+export class CustomerHeaderComponent implements OnInit {
 
   constructor(private dataService: DataService,
               private router: Router) { }
-
-    isAdmin = false;
-
+  isLoggedIn = false;
+  name = "";
   ngOnInit() {
-    this.isAdmin = false;
+    this.isLoggedIn = false;
+    this.name = "";
     this.dataService.getUserInfo()
     .subscribe(
       (req) => {
-        console.log("role: ", req.local.role);
-        if (req.local.role === "Admin") {
-          console.log("Is Admin");
-          this.isAdmin = true;
+        if (req.local && !req.local.role) {
+          this.isLoggedIn = true;
+          this.name = req.local.first_name + " " + req.local.last_name;
         } else {
           console.log("Is not admin");
         }
@@ -39,7 +39,7 @@ export class HeaderComponent implements OnInit {
       let lastSegment = urlPathArray[urlPathArray.length - 1];
       console.log(lastSegment);
 
-      this.router.navigate([lastSegment]);
+      this.router.navigate(['customerlanding']);
     });
   }
 

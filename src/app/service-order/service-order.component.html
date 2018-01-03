@@ -1,30 +1,31 @@
+<app-header></app-header>
 <div class="container">
   <div class="row">
     <div class="col-md-12">
       <div class="card defaultCardStyle">
         <h1 class="text-center headerFont"><strong>Enter Service Order</strong></h1>
         <form (ngSubmit)="onSubmit(f)" #f="ngForm">
-          <label for="cusFirstName">First Name:</label>
+          <label for="cusFirstName"><strong>First Name:</strong></label>
           <input type="text" id="cusFirstName" class="form-control" ngModel name="cusFirstName" required>
-          <label for="cusLastName">Last Name:</label>
+          <label for="cusLastName"><strong>Last Name:</strong></label>
           <input type="text" id="cusLastName" class="form-control" ngModel name="cusLastName" required>
-          <label for="cusPhoneNumber">Phone Number:</label>
+          <label for="cusPhoneNumber"><strong>Phone Number:</strong></label>
           <input type="text" id="cusPhoneNumber" class="form-control" ngModel name="cusPhoneNumber" required>
-          <label for="cusEmail">Email:</label>
+          <label for="cusEmail"><strong>Email:</strong></label>
           <input type="email" id="cusEmail" class="form-control" ngModel name="cusEmail" required email>
-          <label for="cusCarVin">VIN:</label>
+          <label for="cusCarVin"><strong>VIN:</strong></label>
           <input type="text" id="cusCarVin" class="form-control" ngModel name="cusCarVin" required>
-          <label for="cusCarMake">Make:</label>
+          <label for="cusCarMake"><strong>Make:</strong></label>
           <input type="text" id="cusCarMake" class="form-control" ngModel name="cusCarMake" required>
-          <label for="cusCarModel">Model:</label>
+          <label for="cusCarModel"><strong>Model:</strong></label>
           <input type="text" id="cusCarModel" class="form-control" ngModel name="cusCarModel" required>
-          <label for="cusCarYear">Year:</label>
+          <label for="cusCarYear"><strong>Year:</strong></label>
           <input type="text" id="cusCarYear" class="form-control" ngModel name="cusCarYear" required>
-          <label for="serviceAttendant">Assigned To:</label>
+          <label for="serviceAttendant"><strong>Assigned To:</strong></label>
           <select type="text" id="serviceAttendant" class="form-control" ngModel name="cusAttendant" required>
             <option *ngFor="let employee of allEmployeesArray" value="{{employee}}">{{employee}}</option>
           </select>
-          <label for="cusService">Service:</label>
+          <label for="cusService"><strong>Service:</strong></label>
           <select type="text" id="cusCarServiceOne" class="form-control" [(ngModel)]="cusCarServiceOne" name="cusCarServiceOne" required>
             <option *ngFor="let service of cusCarServiceArray" value='{"type":"{{service.type}}","price":"{{service.price}}","desc":"{{service.desc}}","status":"pending"}'>{{service.type}}</option>
           </select>

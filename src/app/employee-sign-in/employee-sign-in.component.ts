@@ -11,10 +11,16 @@ export class EmployeeSignInComponent implements OnInit {
   constructor(private dataService: DataService,
               private router: Router) { }
 
+
+  errorMessage = "";
   ngOnInit() {
+
   }
 
+
+
   onSubmit(form) {
+    this.errorMessage = "";
     console.log(form.value);
     this.dataService.logInUser(form.value)
     .subscribe(info => {
@@ -23,6 +29,10 @@ export class EmployeeSignInComponent implements OnInit {
       let urlPathArray = urlPath.split('/');
       let lastSegment = urlPathArray[urlPathArray.length - 1];
       console.log(lastSegment);
+      if(lastSegment === "") {
+        this.errorMessage = "Incorrect Login Information";
+        return;
+      }
 
       this.router.navigate([lastSegment]);
     });

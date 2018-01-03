@@ -1,3 +1,4 @@
+<app-customer-header></app-customer-header>
 <div class="container">
   <div class="row">
     <div class="col-md-6">
@@ -16,6 +17,15 @@
         <div *ngIf="orderInfo?.status =='waiting on customer'">
           <h2 class="text-center customerColor">STATUS: {{orderInfo?.status |uppercase}}</h2>
           <h3 class='text-center customerColor'>(Please select services below)</h3>
+        </div>
+        <div *ngIf="orderInfo?.status =='work complete'">
+          <h3 class="text-center workCompletedColor">STATUS: {{orderInfo?.status |uppercase}}</h3>
+        </div>
+        <div *ngIf="orderInfo?.status =='closed'">
+          <h3 class="text-center closedColor">STATUS: {{orderInfo?.status |uppercase}}</h3>
+        </div>
+        <hr>
+        <div *ngIf="recommendServiceArr.length > 0">
           <div class="text-center">
             <h4 class="pendingColor"><u>Recommended Services</u></h4>
             <div *ngFor="let service of orderInfo?.cusCarService">
@@ -31,14 +41,8 @@
               <button class="btn btn-primary approveSelectedBtn" (click)="showApproveMsg()">Approve Selected</button><button class="btn btn-warning" (click)="showDeclineMsg()">Decline Selected</button>
             </div>
           </div>
+          <hr>
         </div>
-        <div *ngIf="orderInfo?.status =='work complete'">
-          <h3 class="text-center workCompletedColor">STATUS: {{orderInfo?.status |uppercase}}</h3>
-        </div>
-        <div *ngIf="orderInfo?.status =='closed'">
-          <h3 class="text-center closedColor">STATUS: {{orderInfo?.status |uppercase}}</h3>
-        </div>
-        <hr>
         <div class="text-center">
           <h3 class="headerColor"><u>General Info</u></h3>
           <h5>Make: {{orderInfo?.cusCarMake}}</h5>

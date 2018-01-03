@@ -9,3 +9,6 @@
   .nav-link{
     color: #A5ACAF;
   }
+  .logOutStyle {
+    cursor: pointer;
+  }

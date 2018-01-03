@@ -35,6 +35,7 @@ import { ViewServiceOrderUpdateComponent } from './view-service-order/view-servi
 import { ViewServiceOrderInfoComponent } from './view-service-order/view-service-order-info/view-service-order-info.component';
 import { CustomerPendingWorkComponent } from './customer-pending-work/customer-pending-work.component';
 import { ViewCustomerServiceOrderComponent } from './view-customer-service-order/view-customer-service-order.component';
+import { CustomerHeaderComponent } from './customer-header/customer-header.component';
 
 
 
@@ -83,6 +84,9 @@ import { ViewCustomerServiceOrderComponent } from './view-customer-service-order
 
 
     ViewCustomerServiceOrderComponent,
+
+
+    CustomerHeaderComponent,
 
 
 

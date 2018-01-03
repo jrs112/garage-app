@@ -1,3 +1,8 @@
+<div class="header text-center jumbotron introHeader jumbrotron-fluid">
+    <div class="container">
+        <h1 class="pageHeaderStyle text-center">The Garage App</h1>
+    </div>
+</div>
 <div class="container">
   <div class="row">
     <div class="col"></div>
@@ -14,6 +19,9 @@
             <input type="password" id="inputPassword" ngModel name="password" class="form-control" placeholder="Password" required>
           </div>
           <button class="btn btn-lg btn-primary  btn-block btnSmallMargin" type="submit">Sign in</button>
+          <div class="alert alert-danger btnSmallMargin" *ngIf="errorMessage != ''">
+            <p>{{errorMessage}}</p>
+          </div>
         </form>
       </div>
     </div>

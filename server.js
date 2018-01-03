@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path');
@@ -8,10 +9,13 @@ const mongoose = require("mongoose");
 const passport = require("passport");
 const session = require("express-session");
 const cookieParser = require('cookie-parser');
+const flash = require("connect-flash");
+var mongoUser = process.env.Mongo_User;
+var mongoPassword = process.env.Mongo_Password;
 
-
+console.log("USER: ", mongoUser, " ", mongoPassword)
 // Connect
-const db = "mongodb://localhost/Customer";
+const db = "mongodb://" + mongoUser + ":" + mongoPassword + "@ds239587.mlab.com:39587/garage-app";
 useMongoClient: true;
 mongoose.Promise = global.Promise;
 //connect and show any mongoose errors
@@ -56,6 +60,14 @@ app.use(session({ secret: 'robsgarageistheshiz112',
                   saveUninitialized: true,
                   resave: true})); // session secret
 app.use(passport.initialize());
+app.use(flash());
+
+app.use(function(req, res, next) {
+    res.locals.success_msg = req.flash("success_msg");
+    res.locals.error_msg = req.flash("error_msg");
+    res.locals.error = req.flash("error");
+    next();
+})
 app.use(passport.session()); // persistent login sessions
 
 // Angular DIST output folder

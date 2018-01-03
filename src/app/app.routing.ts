@@ -36,7 +36,7 @@ export const routes: Routes = [
   },
   {
 
-    path: 'landingpage',
+    path: 'landingpage', canActivate: [AuthGuard],
     component: LandingPageComponent
   },
   {
@@ -90,11 +90,11 @@ export const routes: Routes = [
     component: CustomerLandingPageComponent
   },
   {
-    path: 'customerportal',
+    path: 'customerportal', canActivate: [AuthGuard],
     component: CustomerPortalComponent
   },
   {
-    path: 'viewcustomerserviceorder',
+    path: 'viewcustomerserviceorder', canActivate: [AuthGuard],
     component: ViewCustomerServiceOrderComponent
   },
   {

@@ -1,8 +1,13 @@
-<form class="form-signin" (ngSubmit)="onSubmit(f)" #f="ngForm">
-  <h2 class="form-signin-heading" text-center>Sign In</h2>
-  <label for="loginEmail" class="sr-only">Email address</label>
-  <input type="email" id="loginEmail" ngModel name="email" class="form-control" placeholder="Email address" required autofocus>
-  <label for="loginPassword" class="sr-only">Password</label>
-  <input type="password" id="loginPassword" ngModel name="password" class="form-control" placeholder="Password" required>
-  <button class="btn btn-lg  btn-block" type="submit">Sign in</button>
-</form>
+<div class="card defaultCardStyle">
+  <form class="form-signin" (ngSubmit)="onSubmit(f)" #f="ngForm">
+    <h2 class="text-center headerFont"><strong>Sign In</strong></h2>
+    <label for="loginEmail"><strong>Email address:</strong></label>
+    <input type="email" id="loginEmail" ngModel name="email" class="form-control" placeholder="Email address" required autofocus>
+    <label for="loginPassword"><strong>Password</strong></label>
+    <input type="password" id="loginPassword" ngModel name="password" class="form-control" placeholder="Password" required>
+    <button class="btn btn-lg btn-primary btnSmallMargin btn-block" type="submit">Sign in</button>
+  </form>
+  <div class="alert alert-danger btnSmallMargin" *ngIf="errorMessage != ''">
+    <p>{{errorMessage}}</p>
+  </div>
+</div>
