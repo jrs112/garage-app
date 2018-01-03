@@ -12,7 +12,7 @@ const cookieParser = require('cookie-parser');
 const flash = require("connect-flash");
 var mongoUser = process.env.Mongo_User;
 var mongoPassword = process.env.Mongo_Password;
-
+const server = http.createServer(app);
 
 // Connect
 const db = "mongodb://" + mongoUser + ":" + mongoPassword + "@ds239587.mlab.com:39587/garage-app";
@@ -96,6 +96,6 @@ app.get('*', (req, res) => {
 
 
 
-const server = http.createServer(app);
+
 
 server.listen(process.env.PORT || 5000);
