@@ -45,7 +45,7 @@ let response = {
 // API file for interacting with MongoDB
 const api = require('./server/routes/api');
 
-const serviceapi = require('./server/routes/serviceapi');
+const serviceapi = require('./server/routes/serviceApi');
 
 const auth = require("./server/routes/auth");
 
