@@ -82,6 +82,7 @@ export class ServiceOrderComponent implements OnInit {
         if (response.length > 0) {
         console.log("already in database");
         $("#appendItemDiv").empty();
+        this.count = 0;
         form.reset();
       } else {
         const customerInfo = {
@@ -99,6 +100,7 @@ export class ServiceOrderComponent implements OnInit {
         .subscribe(res => {
           console.log("this was a success");
           $("#appendItemDiv").empty();
+          this.count = 0;
           form.reset();
         })
       }
