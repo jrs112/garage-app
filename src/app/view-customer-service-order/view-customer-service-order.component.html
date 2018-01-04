@@ -3,70 +3,70 @@
   <div class="row">
     <div class="col-md-6">
       <div class="card viewCustomerOrderStyle">
-        <h1 class='text-center headerColor'>View Service Order</h1>
+        <h1 class='text-center headerColor headerFont'><strong>View Service Order</strong></h1>
         <hr>
         <div *ngIf="orderInfo?.status =='pending'">
-          <h3 class="text-center pendingColor">STATUS: {{orderInfo?.status |uppercase}}</h3>
+          <h3 class="text-center pendingColor headerFont"><strong>STATUS: {{orderInfo?.status |uppercase}}</strong></h3>
         </div>
         <div *ngIf="orderInfo?.status =='in progress'">
-          <h3 class="text-center inProgressColor">STATUS: {{orderInfo?.status |uppercase}}</h3>
+          <h3 class="text-center inProgressColor headerFont"><strong>STATUS: {{orderInfo?.status |uppercase}}</strong></h3>
         </div>
         <div *ngIf="orderInfo?.status =='waiting on parts'">
-          <h3 class="text-center partsColor">STATUS: {{orderInfo?.status |uppercase}}</h3>
+          <h3 class="text-center partsColor headerFont"><strong>STATUS: {{orderInfo?.status |uppercase}}</strong></h3>
         </div>
         <div *ngIf="orderInfo?.status =='waiting on customer'">
-          <h2 class="text-center customerColor">STATUS: {{orderInfo?.status |uppercase}}</h2>
-          <h3 class='text-center customerColor'>(Please select services below)</h3>
+          <h2 class="text-center customerColor headerFont"><strong>STATUS: {{orderInfo?.status |uppercase}}</strong></h2>
         </div>
         <div *ngIf="orderInfo?.status =='work complete'">
-          <h3 class="text-center workCompletedColor">STATUS: {{orderInfo?.status |uppercase}}</h3>
+          <h3 class="text-center workCompletedColor headerFont"><strong>STATUS: {{orderInfo?.status |uppercase}}</strong></h3>
         </div>
         <div *ngIf="orderInfo?.status =='closed'">
-          <h3 class="text-center closedColor">STATUS: {{orderInfo?.status |uppercase}}</h3>
+          <h3 class="text-center closedColor headerFont"><strong>STATUS: {{orderInfo?.status |uppercase}}</strong></h3>
         </div>
         <hr>
         <div *ngIf="recommendServiceArr.length > 0">
           <div class="text-center">
-            <h4 class="pendingColor"><u>Recommended Services</u></h4>
+            <h4 class="pendingColor headerFont"><u><strong>Recommended Services</strong></u></h4>
+              <h5 class='text-center customerColor headerFont'>(Please select services below)</h5>
             <div *ngFor="let service of orderInfo?.cusCarService">
-              <h5 *ngIf="service.status == 'recommended'" [ngClass]="{'clickedClass': isActive(service) }" class="infoColor hoverItem" (click)="selectService(service)"><li><strong><u>{{service.type}} (${{service.price}})-</u></strong><p class="descStyle">{{service.desc}}</p></li></h5>
+              <h5 *ngIf="service.status == 'recommended'" [ngClass]="{'clickedClass': isActive(service) }" class="infoColor hoverItem bodyFont" (click)="selectService(service)"><li><strong><u>{{service.type}} (${{service.price}})-</u></strong><p class="descStyle">{{service.desc}}</p></li></h5>
             </div>
-            <div *ngIf="approveMessage != ''">
+            <div *ngIf="approveMessage != '' && selectedServicesArr.length > 0">
               <div class="alert alert-success"><p>{{approveMessage}}</p><button class="btn btn-primary approveSelectedBtn" (click)="updateSelectedService('pending')">Confirm Approval</button><button class="btn btn-danger" (click)="approveMessage = ''">Cancel</button></div>
             </div>
-            <div *ngIf="declineMessage != ''">
+            <div *ngIf="declineMessage != '' && selectedServicesArr.length > 0">
               <div class="alert alert-danger"><p>{{declineMessage}}</p><button class="btn btn-warning declineBtn" (click)="updateSelectedService('declined')">Decline Services</button><button class="btn btn-danger" (click)="declineMessage = ''">Cancel</button></div>
             </div>
-            <div *ngIf="declineMessage == '' && approveMessage == ''">
+            <div *ngIf="declineMessage == '' && approveMessage == '' && selectedServicesArr.length > 0">
               <button class="btn btn-primary approveSelectedBtn" (click)="showApproveMsg()">Approve Selected</button><button class="btn btn-warning" (click)="showDeclineMsg()">Decline Selected</button>
             </div>
           </div>
           <hr>
         </div>
         <div class="text-center">
-          <h3 class="headerColor"><u>General Info</u></h3>
-          <h5>Make: {{orderInfo?.cusCarMake}}</h5>
-          <h5>Model: {{orderInfo?.cusCarModel}}</h5>
-          <h5>Year: {{orderInfo?.cusCarYear}}</h5>
-          <h5>Attendant: {{orderInfo?.cusAttendant}}</h5>
-          <h5>Location: {{orderInfo?.location}}</h5>
-          <h5>Created: {{orderInfo?.created_at | date:"medium"}}</h5>
-          <h5>Last Update: {{orderInfo?.updatedAt | date:"medium"}}</h5>
+          <h3 class="headerColor headerFont"><strong><u>General Info</u></strong></h3>
+          <h5 class="bodyFont">Make: {{orderInfo?.cusCarMake}}</h5>
+          <h5 class="bodyFont">Model: {{orderInfo?.cusCarModel}}</h5>
+          <h5 class="bodyFont">Year: {{orderInfo?.cusCarYear}}</h5>
+          <h5 class="bodyFont">Attendant: {{orderInfo?.cusAttendant}}</h5>
+          <h5 class="bodyFont">Location: {{orderInfo?.location}}</h5>
+          <h5 class="bodyFont">Created: {{orderInfo?.created_at | date:"medium"}}</h5>
+          <h5 class="bodyFont">Last Update: {{orderInfo?.updatedAt | date:"medium"}}</h5>
         </div>
         <hr>
         <div class="text-center">
-          <h3 class="headerColor"><u>Current Services</u></h3>
+          <h3 class="headerColor headerFont"><strong><u>Current Services</u></strong></h3>
             <div *ngFor="let service of orderInfo?.cusCarService" >
-              <h5 class="greenColor"><li *ngIf="service.status == 'complete'">{{service.status | uppercase}}: {{service.type}}</li></h5>
-              <h5 class="blueColor"><li *ngIf="service.status == 'pending'">{{service.status | uppercase}}: {{service.type}}</li></h5>
+              <h5 class="greenColor statusFont"><li *ngIf="service.status == 'complete'">{{service.status | uppercase}}: {{service.type}}</li></h5>
+              <h5 class="blueColor statusFont"><li *ngIf="service.status == 'pending'">{{service.status | uppercase}}: {{service.type}}</li></h5>
             </div>
         </div>
         <div *ngIf="declinedServiceArr.length > 0">
           <hr>
           <div class="text-center">
-            <h3 class="headerColor"><u>Declined Recommendations</u></h3>
+            <h3 class="headerColor headerFont"><strong><u>Declined Recommendations</u></strong></h3>
             <div *ngFor="let service of orderInfo?.cusCarService" >
-              <h5 class="yellowColor"><li *ngIf="service.status == 'declined'">{{service.status | uppercase}}: {{service.type}}</li></h5>
+              <h5 class="yellowColor statusFont"><li *ngIf="service.status == 'declined'">{{service.status | uppercase}}: {{service.type}}</li></h5>
             </div>
           </div>
         </div>
@@ -74,35 +74,35 @@
     </div>
     <div class="col-md-6">
       <div class="card viewCustomerOrderStyle">
-        <h1 class='text-center headerColor'>Cost Breakdown</h1>
+        <h1 class='text-center headerColor headerFont'><strong>Cost Breakdown</strong></h1>
         <hr>
         <div class="text-center">
-          <h3 class="headerColor"><u>Current Services</u></h3>
+          <h3 class="headerColor headerFont"><strong><u>Current Services</u></strong></h3>
             <div *ngFor="let service of orderInfo?.cusCarService" >
-              <h5 class="greenColor"><li *ngIf="service.status == 'complete' || service.status == 'pending'">{{service.type}}- ${{service.price | number: "1.2-2"}}</li></h5>
+              <h5 class="greenColor priceFont"><li *ngIf="service.status == 'complete' || service.status == 'pending'">{{service.type}}- ${{service.price | number: "1.2-2"}}</li></h5>
             </div>
         </div>
         <div *ngIf="selectedServicesArr.length > 0">
           <hr>
           <div class="text-center">
-            <h3 class="headerColor"><u>Selected Services</u></h3>
+            <h3 class="headerColor headerFont"><strong><u>Selected Services</u></strong></h3>
             <div *ngFor="let service of selectedServicesArr">
-              <h5 class="infoColor"><li>{{service.type}}- ${{service.price | number: "1.2-2"}}</li></h5>
+              <h5 class="infoColor priceFont"><li>{{service.type}}- ${{service.price | number: "1.2-2"}}</li></h5>
             </div>
           </div>
         </div>
         <hr>
         <div class="text-center">
-          <h3 class="headerColor"><u>Tax</u></h3>
-          <h5 class="greenColor">Current Services @ 7.5%: ${{taxCurrent | number: "1.2-2"}}</h5>
+          <h3 class="headerColor headerFont"><strong><u>Tax</u></strong></h3>
+          <h5 class="greenColor priceFont">Current Services @ 7.5%: ${{taxCurrent | number: "1.2-2"}}</h5>
           <div *ngIf="selectedServicesArr.length > 0">
-            <h5 class="infoColor">Current and Selected Services @ 7.5%: ${{taxWithSelected | number: "1.2-2"}}</h5>
+            <h5 class="infoColor priceFont">Current and Selected Services @ 7.5%: ${{taxWithSelected | number: "1.2-2"}}</h5>
           </div>
           <hr>
-          <h3 class="headerColor"><u>Total</u></h3>
-          <h5 class="greenColor">Current Services: ${{totalCost | number: "1.2-2"}}</h5>
+          <h3 class="headerColor headerFont"><strong><u>Total</u></strong></h3>
+          <h5 class="greenColor priceFont">Current Services: ${{totalCost | number: "1.2-2"}}</h5>
           <div *ngIf="selectedServicesArr.length > 0">
-            <h5 class="infoColor">Current and Selected Services: ${{totalCurrentAndSelectCost | number: "1.2-2"}}</h5>
+            <h5 class="infoColor priceFont">Current and Selected Services: ${{totalCurrentAndSelectCost | number: "1.2-2"}}</h5>
           </div>
         </div>
       </div>

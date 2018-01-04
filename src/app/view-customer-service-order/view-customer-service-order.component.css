@@ -76,3 +76,15 @@
 .declineBtn {
   margin-right: 5px;
 }
+.bodyFont {
+  font-family: 'Bree Serif', serif;
+}
+.bodyColor {
+  color: rgb(29,89,179);
+}
+.priceFont {
+  font-family: 'Tinos', serif;
+}
+.statusFont {
+  font-family: 'Roboto Slab', serif;
+}
