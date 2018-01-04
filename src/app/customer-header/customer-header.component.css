@@ -3,9 +3,9 @@
 }
 .introHeader {
   background: rgb(0,62,83);
-  border-bottom-color: rgb(228,188,54);
-  border-bottom-width: 2px;
-  border-bottom-style: solid;
+  border-color: rgb(228,188,54);
+  border-width: 2px;
+  border-style: solid;
   color: rgb(210,233,225);
   font-family: 'Merriweather', serif;
   margin-bottom: 0px;

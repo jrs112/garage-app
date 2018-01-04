@@ -94,8 +94,8 @@ app.get('*', (req, res) => {
 
 //Set Port
 
+var port = process.env.PORT || 8080;
 
 
 
-
-server.listen(process.env.PORT || 5000);
+server.listen(port, () => console.log("connected and listening on port ", port));
