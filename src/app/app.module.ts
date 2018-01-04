@@ -36,6 +36,8 @@ import { ViewServiceOrderInfoComponent } from './view-service-order/view-service
 import { CustomerPendingWorkComponent } from './customer-pending-work/customer-pending-work.component';
 import { ViewCustomerServiceOrderComponent } from './view-customer-service-order/view-customer-service-order.component';
 import { CustomerHeaderComponent } from './customer-header/customer-header.component';
+import { CustomerClosedWorkComponent } from './customer-closed-work/customer-closed-work.component';
+import { ViewCustomerClosedOrderComponent } from './view-customer-closed-order/view-customer-closed-order.component';
 
 
 
@@ -87,6 +89,12 @@ import { CustomerHeaderComponent } from './customer-header/customer-header.compo
 
 
     CustomerHeaderComponent,
+
+
+    CustomerClosedWorkComponent,
+
+
+    ViewCustomerClosedOrderComponent,
 
 
 

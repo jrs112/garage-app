@@ -353,12 +353,16 @@ var _a;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_33__customer_pending_work_customer_pending_work_component__ = __webpack_require__("../../../../../src/app/customer-pending-work/customer-pending-work.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_34__view_customer_service_order_view_customer_service_order_component__ = __webpack_require__("../../../../../src/app/view-customer-service-order/view-customer-service-order.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_35__customer_header_customer_header_component__ = __webpack_require__("../../../../../src/app/customer-header/customer-header.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_36__customer_closed_work_customer_closed_work_component__ = __webpack_require__("../../../../../src/app/customer-closed-work/customer-closed-work.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_37__view_customer_closed_order_view_customer_closed_order_component__ = __webpack_require__("../../../../../src/app/view-customer-closed-order/view-customer-closed-order.component.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
+
 
 
 
@@ -424,6 +428,8 @@ AppModule = __decorate([
             __WEBPACK_IMPORTED_MODULE_33__customer_pending_work_customer_pending_work_component__["a" /* CustomerPendingWorkComponent */],
             __WEBPACK_IMPORTED_MODULE_34__view_customer_service_order_view_customer_service_order_component__["a" /* ViewCustomerServiceOrderComponent */],
             __WEBPACK_IMPORTED_MODULE_35__customer_header_customer_header_component__["a" /* CustomerHeaderComponent */],
+            __WEBPACK_IMPORTED_MODULE_36__customer_closed_work_customer_closed_work_component__["a" /* CustomerClosedWorkComponent */],
+            __WEBPACK_IMPORTED_MODULE_37__view_customer_closed_order_view_customer_closed_order_component__["a" /* ViewCustomerClosedOrderComponent */],
         ],
         imports: [
             __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__["a" /* BrowserModule */],
@@ -459,9 +465,11 @@ AppModule = __decorate([
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__customer_landing_page_customer_landing_page_component__ = __webpack_require__("../../../../../src/app/customer-landing-page/customer-landing-page.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__customer_portal_customer_portal_component__ = __webpack_require__("../../../../../src/app/customer-portal/customer-portal.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__view_customer_service_order_view_customer_service_order_component__ = __webpack_require__("../../../../../src/app/view-customer-service-order/view-customer-service-order.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__auth_guard_service__ = __webpack_require__("../../../../../src/app/auth-guard.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__admin_guard_service__ = __webpack_require__("../../../../../src/app/admin-guard.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__add_guard_service__ = __webpack_require__("../../../../../src/app/add-guard.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__view_customer_closed_order_view_customer_closed_order_component__ = __webpack_require__("../../../../../src/app/view-customer-closed-order/view-customer-closed-order.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__auth_guard_service__ = __webpack_require__("../../../../../src/app/auth-guard.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__admin_guard_service__ = __webpack_require__("../../../../../src/app/admin-guard.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__add_guard_service__ = __webpack_require__("../../../../../src/app/add-guard.service.ts");
+
 
 
 
@@ -480,43 +488,39 @@ AppModule = __decorate([
 
 var routes = [
     {
-        path: '',
-        component: __WEBPACK_IMPORTED_MODULE_0__employee_sign_in_employee_sign_in_component__["a" /* EmployeeSignInComponent */]
-    },
-    {
-        path: 'landingpage', canActivate: [__WEBPACK_IMPORTED_MODULE_13__auth_guard_service__["a" /* AuthGuard */]],
+        path: 'landingpage', canActivate: [__WEBPACK_IMPORTED_MODULE_14__auth_guard_service__["a" /* AuthGuard */]],
         component: __WEBPACK_IMPORTED_MODULE_1__landing_page_landing_page_component__["a" /* LandingPageComponent */]
     },
     {
-        path: 'nouser', canActivate: [__WEBPACK_IMPORTED_MODULE_15__add_guard_service__["a" /* AddGuard */]],
+        path: 'nouser', canActivate: [__WEBPACK_IMPORTED_MODULE_16__add_guard_service__["a" /* AddGuard */]],
         component: __WEBPACK_IMPORTED_MODULE_9__user_signup_user_signup_component__["a" /* UserSignupComponent */]
     },
     {
-        path: 'signupform', canActivate: [__WEBPACK_IMPORTED_MODULE_13__auth_guard_service__["a" /* AuthGuard */]],
+        path: 'signupform', canActivate: [__WEBPACK_IMPORTED_MODULE_14__auth_guard_service__["a" /* AuthGuard */]],
         component: __WEBPACK_IMPORTED_MODULE_2__sign_up_form_sign_up_form_component__["a" /* SignUpFormComponent */]
     },
     {
-        path: 'landingpage', canActivate: [__WEBPACK_IMPORTED_MODULE_13__auth_guard_service__["a" /* AuthGuard */]],
+        path: 'landingpage', canActivate: [__WEBPACK_IMPORTED_MODULE_14__auth_guard_service__["a" /* AuthGuard */]],
         component: __WEBPACK_IMPORTED_MODULE_1__landing_page_landing_page_component__["a" /* LandingPageComponent */]
     },
     {
-        path: 'findcustomer', canActivate: [__WEBPACK_IMPORTED_MODULE_13__auth_guard_service__["a" /* AuthGuard */]],
+        path: 'findcustomer', canActivate: [__WEBPACK_IMPORTED_MODULE_14__auth_guard_service__["a" /* AuthGuard */]],
         component: __WEBPACK_IMPORTED_MODULE_5__select_customer_select_customer_component__["a" /* SelectCustomerComponent */]
     },
     {
-        path: 'customerdashboard', canActivate: [__WEBPACK_IMPORTED_MODULE_13__auth_guard_service__["a" /* AuthGuard */]],
+        path: 'customerdashboard', canActivate: [__WEBPACK_IMPORTED_MODULE_14__auth_guard_service__["a" /* AuthGuard */]],
         component: __WEBPACK_IMPORTED_MODULE_4__customer_customer_component__["a" /* CustomerComponent */]
     },
     {
-        path: 'createserviceorder', canActivate: [__WEBPACK_IMPORTED_MODULE_13__auth_guard_service__["a" /* AuthGuard */]],
+        path: 'createserviceorder', canActivate: [__WEBPACK_IMPORTED_MODULE_14__auth_guard_service__["a" /* AuthGuard */]],
         component: __WEBPACK_IMPORTED_MODULE_3__service_order_service_order_component__["a" /* ServiceOrderComponent */]
     },
     {
-        path: 'servicedashboard', canActivate: [__WEBPACK_IMPORTED_MODULE_13__auth_guard_service__["a" /* AuthGuard */]],
+        path: 'servicedashboard', canActivate: [__WEBPACK_IMPORTED_MODULE_14__auth_guard_service__["a" /* AuthGuard */]],
         component: __WEBPACK_IMPORTED_MODULE_6__service_dashboard_service_dashboard_component__["a" /* ServiceDashboardComponent */]
     },
     {
-        path: 'viewserviceorder', canActivate: [__WEBPACK_IMPORTED_MODULE_13__auth_guard_service__["a" /* AuthGuard */]],
+        path: 'viewserviceorder', canActivate: [__WEBPACK_IMPORTED_MODULE_14__auth_guard_service__["a" /* AuthGuard */]],
         component: __WEBPACK_IMPORTED_MODULE_7__view_service_order_view_service_order_component__["a" /* ViewServiceOrderComponent */]
     },
     {
@@ -524,11 +528,11 @@ var routes = [
         component: __WEBPACK_IMPORTED_MODULE_0__employee_sign_in_employee_sign_in_component__["a" /* EmployeeSignInComponent */]
     },
     {
-        path: 'addservice', canActivate: [__WEBPACK_IMPORTED_MODULE_14__admin_guard_service__["a" /* AdminGuard */]],
+        path: 'addservice', canActivate: [__WEBPACK_IMPORTED_MODULE_15__admin_guard_service__["a" /* AdminGuard */]],
         component: __WEBPACK_IMPORTED_MODULE_8__add_service_add_service_component__["a" /* AddServiceComponent */]
     },
     {
-        path: 'usersignup', canActivate: [__WEBPACK_IMPORTED_MODULE_14__admin_guard_service__["a" /* AdminGuard */]],
+        path: 'usersignup', canActivate: [__WEBPACK_IMPORTED_MODULE_15__admin_guard_service__["a" /* AdminGuard */]],
         component: __WEBPACK_IMPORTED_MODULE_9__user_signup_user_signup_component__["a" /* UserSignupComponent */]
     },
     {
@@ -536,12 +540,16 @@ var routes = [
         component: __WEBPACK_IMPORTED_MODULE_10__customer_landing_page_customer_landing_page_component__["a" /* CustomerLandingPageComponent */]
     },
     {
-        path: 'customerportal', canActivate: [__WEBPACK_IMPORTED_MODULE_13__auth_guard_service__["a" /* AuthGuard */]],
+        path: 'customerportal', canActivate: [__WEBPACK_IMPORTED_MODULE_14__auth_guard_service__["a" /* AuthGuard */]],
         component: __WEBPACK_IMPORTED_MODULE_11__customer_portal_customer_portal_component__["a" /* CustomerPortalComponent */]
     },
     {
-        path: 'viewcustomerserviceorder', canActivate: [__WEBPACK_IMPORTED_MODULE_13__auth_guard_service__["a" /* AuthGuard */]],
+        path: 'viewcustomerserviceorder', canActivate: [__WEBPACK_IMPORTED_MODULE_14__auth_guard_service__["a" /* AuthGuard */]],
         component: __WEBPACK_IMPORTED_MODULE_12__view_customer_service_order_view_customer_service_order_component__["a" /* ViewCustomerServiceOrderComponent */]
+    },
+    {
+        path: 'viewcustomerclosedeorder', canActivate: [__WEBPACK_IMPORTED_MODULE_14__auth_guard_service__["a" /* AuthGuard */]],
+        component: __WEBPACK_IMPORTED_MODULE_13__view_customer_closed_order_view_customer_closed_order_component__["a" /* ViewCustomerClosedOrderComponent */]
     },
     {
         path: 'landingpage',
@@ -705,6 +713,106 @@ var _a;
 
 /***/ }),
 
+/***/ "../../../../../src/app/customer-closed-work/customer-closed-work.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, ".defaultCardStyle{\r\n  background: rgb(245,245,245);\r\n  padding: 10px;\r\n  margin-top: 15px;\r\n  border-style: solid;\r\n  border-width: 2px;\r\n  border-color: black;\r\n}\r\n\r\n.goldBack{\r\n  background: rgb(228,188,54);\r\n  border-style: solid;\r\n  border-color: black;\r\n  border-width: 2px;\r\n}\r\n\r\n.rowStyle {\r\n  background: rgb(0,62,83);\r\n  color: rgb(210,233,225);\r\n  cursor: pointer;\r\n}\r\n.pendingOrderStyle {\r\n  color: rgb(119,181,254);\r\n}\r\n.progressOrderStyle {\r\n  color: rgb(231,35,48);\r\n}\r\n.waitCustomerOrderStyle {\r\n  color: rgb(216,176,140);\r\n}\r\n.waitCustomerOrderStyle:hover {\r\n  color: rgb(216,176,140);\r\n}\r\n.waitPartsOrderStyle {\r\n  color: rgb(255,154,0);\r\n}\r\n.workCompOrderStyle {\r\n  color: rgb(172,189,55);\r\n}\r\n.rowStyle:hover{\r\n  background: rgb(210,233,225);\r\n  color: rgb(0,62,83);\r\n  border-style: solid;\r\n  border-width: 1px;\r\n  border-color: rgb(228,188,54);\r\n}\r\n", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/customer-closed-work/customer-closed-work.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"row\">\n  <div class=\"col-md-12\">\n    <div class=\"card defaultCardStyle\">\n      <h1 class=\"text-center headerFont\"><strong>Service History</strong></h1>\n      <table class=\"table\">\n        <thead class=\"goldBack\">\n          <tr>\n            <th>Mechanic</th>\n            <th>Status</th>\n            <th>Vehicle</th>\n            <th>Location</th>\n            <th>Services</th>\n            <th>Created</th>\n          </tr>\n        </thead>\n        <tbody>\n          <tr *ngFor=\"let order of closedServices\" (click)=\"selectOrder(order._id)\" class=\"rowStyle\">\n            <td>{{order.cusAttendant}}</td>\n            <td>{{order.status | uppercase}}</td>\n            <td>{{order.cusCarMake}} {{order.cusCarModel}}, {{order.cusCarYear}}</td>\n            <td>{{order.location}}</td>\n            <td>\n              <div *ngFor=\"let service of order.cusCarService\">\n                <div *ngIf=\"service.status == 'complete'\">{{service.type}}</div>\n              </div>\n            </td>\n            <td>{{order.created_at | date:\"medium\"}}</td>\n          </tr>\n        </tbody>\n      </table>\n    </div>\n  </div>\n</div>\n"
+
+/***/ }),
+
+/***/ "../../../../../src/app/customer-closed-work/customer-closed-work.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CustomerClosedWorkComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__add_service_service__ = __webpack_require__("../../../../../src/app/add-service.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__data_service__ = __webpack_require__("../../../../../src/app/data.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__customer_service_order_service__ = __webpack_require__("../../../../../src/app/customer-service-order.service.ts");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+var CustomerClosedWorkComponent = (function () {
+    function CustomerClosedWorkComponent(dataService, addServiceService, router, customerServiceOrderService) {
+        this.dataService = dataService;
+        this.addServiceService = addServiceService;
+        this.router = router;
+        this.customerServiceOrderService = customerServiceOrderService;
+        this.currentUser = {};
+        this.currentServices = [];
+        this.closedServices = [];
+    }
+    CustomerClosedWorkComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.dataService.getUserInfo().subscribe(function (user) {
+            console.log(user);
+            _this.currentUser = user.local;
+            console.log("EMAIL ", user.local.email);
+            _this.getCustomerOrders(user.local.email);
+        });
+    };
+    CustomerClosedWorkComponent.prototype.getCustomerOrders = function (email) {
+        var _this = this;
+        this.dataService.getCustomerServiceOrder(email).subscribe(function (orders) {
+            console.log("ORDERS ARE: ", orders);
+            _this.currentServices = orders;
+            for (var i = 0; i < orders.length; i++) {
+                if (orders[i].status === "closed") {
+                    _this.closedServices.push(orders[i]);
+                }
+            }
+        });
+    };
+    CustomerClosedWorkComponent.prototype.selectOrder = function (value) {
+        this.customerServiceOrderService.updateCurrentOrder(value);
+        this.router.navigate(["/viewcustomerclosedeorder"]);
+    };
+    return CustomerClosedWorkComponent;
+}());
+CustomerClosedWorkComponent = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+        selector: 'app-customer-closed-work',
+        template: __webpack_require__("../../../../../src/app/customer-closed-work/customer-closed-work.component.html"),
+        styles: [__webpack_require__("../../../../../src/app/customer-closed-work/customer-closed-work.component.css")]
+    }),
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__data_service__["a" /* DataService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__data_service__["a" /* DataService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__add_service_service__["a" /* AddServiceService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__add_service_service__["a" /* AddServiceService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__angular_router__["a" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__angular_router__["a" /* Router */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_4__customer_service_order_service__["a" /* CustomerServiceOrderService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__customer_service_order_service__["a" /* CustomerServiceOrderService */]) === "function" && _d || Object])
+], CustomerClosedWorkComponent);
+
+var _a, _b, _c, _d;
+//# sourceMappingURL=customer-closed-work.component.js.map
+
+/***/ }),
+
 /***/ "../../../../../src/app/customer-create-account/customer-create-account.component.css":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -815,7 +923,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/customer-header/customer-header.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"header text-center jumbotron introHeader jumbrotron-fluid\">\n    <div class=\"container\">\n      <div *ngIf=\"!isLoggedIn\">\n        <h1 class=\"pageHeaderStyle text-center\">Welcome to The Garage App</h1>\n      </div>\n      <div *ngIf=\"isLoggedIn\">\n        <h1 class=\"pageHeaderStyle text-center\">{{name}}'s Account</h1>\n          <button type=\"button\" (click)=\"logOut()\" class=\"btn btn-outline-danger\">Logout</button>\n      </div>\n    </div>\n</div>\n"
+module.exports = "<div class=\"header text-center jumbotron introHeader jumbrotron-fluid\">\n    <div class=\"container\">\n      <div *ngIf=\"!isLoggedIn\">\n        <h1 class=\"pageHeaderStyle text-center\">Welcome to The Garage App</h1>\n      </div>\n      <div *ngIf=\"isLoggedIn\">\n        <h1 class=\"pageHeaderStyle text-center\">{{name}}'s Account</h1>\n          <button type=\"button\" routerLink=\"/customerportal\" class=\"btn btn-outline-primary\">Home</button>\n          <button type=\"button\" (click)=\"logOut()\" class=\"btn btn-outline-danger\">Logout</button>\n      </div>\n    </div>\n</div>\n"
 
 /***/ }),
 
@@ -958,7 +1066,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".defaultCardStyle{\r\n  background: rgb(245,245,245);\r\n  padding: 10px;\r\n  margin-top: 15px;\r\n  border-style: solid;\r\n  border-width: 2px;\r\n  border-color: black;\r\n}\r\n\r\n.goldBack{\r\n  background: rgb(228,188,54);\r\n  border-style: solid;\r\n  border-color: black;\r\n  border-width: 2px;\r\n}\r\n\r\n.rowStyle {\r\n  background: rgb(0,62,83);\r\n  color: rgb(210,233,225);\r\n  cursor: pointer;\r\n}\r\n.pendingOrderStyle {\r\n  color: rgb(119,181,254);\r\n}\r\n.progressOrderStyle {\r\n  color: rgb(231,35,48);\r\n}\r\n.waitCustomerOrderStyle {\r\n  color: rgb(216,176,140);\r\n}\r\n.waitCustomerOrderStyle:hover {\r\n  color: rgb(216,176,140);\r\n}\r\n.waitPartsOrderStyle {\r\n  color: rgb(255,154,0);\r\n}\r\n.workCompOrderStyle {\r\n  color: rgb(172,189,55);\r\n}\r\n.rowStyle:hover{\r\n  background: rgb(210,233,225);\r\n  color: rgb(0,62,83);\r\n  border-style: solid;\r\n  border-width: 1px;\r\n  border-color: rgb(228,188,54);\r\n}\r\n", ""]);
+exports.push([module.i, ".defaultCardStyle{\r\n  background: rgb(245,245,245);\r\n  padding: 10px;\r\n  margin-top: 15px;\r\n  border-style: solid;\r\n  border-width: 2px;\r\n  border-color: black;\r\n}\r\n\r\n.goldBack{\r\n  background: rgb(228,188,54);\r\n  border-style: solid;\r\n  border-color: black;\r\n  border-width: 2px;\r\n}\r\n.fireFont {\r\n  color: rgb(206,33,0);\r\n}\r\n\r\n.rowStyle {\r\n  background: rgb(0,62,83);\r\n  color: rgb(210,233,225);\r\n  cursor: pointer;\r\n}\r\n.pendingOrderStyle {\r\n  color: rgb(119,181,254);\r\n}\r\n.progressOrderStyle {\r\n  color: rgb(231,35,48);\r\n}\r\n.waitCustomerOrderStyle {\r\n  color: rgb(216,176,140);\r\n}\r\n.waitCustomerOrderStyle:hover {\r\n  color: rgb(216,176,140);\r\n}\r\n.waitPartsOrderStyle {\r\n  color: rgb(255,154,0);\r\n}\r\n.workCompOrderStyle {\r\n  color: rgb(172,189,55);\r\n}\r\n.rowStyle:hover{\r\n  background: rgb(210,233,225);\r\n  color: rgb(0,62,83);\r\n  border-style: solid;\r\n  border-width: 1px;\r\n  border-color: rgb(228,188,54);\r\n}\r\n", ""]);
 
 // exports
 
@@ -971,7 +1079,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/customer-pending-work/customer-pending-work.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"row\">\r\n  <div class=\"col-md-12\">\r\n    <div class=\"card defaultCardStyle\">\r\n      <h1 class=\"text-center headerFont\"><strong>Current Services In Progress</strong></h1>\r\n      <table class=\"table\">\r\n        <thead class=\"goldBack\">\r\n          <tr>\r\n            <th>Mechanic</th>\r\n            <th>Status</th>\r\n            <th>Vehicle</th>\r\n            <th>Location</th>\r\n            <th>Ordered</th>\r\n            <th>Recommended</th>\r\n            <th>Created</th>\r\n          </tr>\r\n        </thead>\r\n        <tbody>\r\n          <tr *ngFor=\"let order of pendingServices\" (click)=\"selectOrder(order._id)\" class=\"rowStyle\">\r\n            <td>{{order.cusAttendant}}</td>\r\n            <td>{{order.status | uppercase}}</td>\r\n            <td>{{order.cusCarMake}} {{order.cusCarModel}}, {{order.cusCarYear}}</td>\r\n            <td>{{order.location}}</td>\r\n            <td>\r\n              <div *ngFor=\"let service of order.cusCarService\">\r\n                <div *ngIf=\"service.status == 'pending' || service.status == 'complete'\">{{service.type}}</div>\r\n              </div>\r\n            </td>\r\n            <td>\r\n              <div *ngFor=\"let recService of order.cusCarService\">\r\n                <div *ngIf=\"recService.status == 'recommended'\">{{recService.type}}</div>\r\n              </div>\r\n            </td>\r\n            <td>{{order.created_at | date:\"medium\"}}</td>\r\n          </tr>\r\n        </tbody>\r\n      </table>\r\n    </div>\r\n  </div>\r\n</div>\r\n"
+module.exports = "<div class=\"row\">\r\n  <div class=\"col-md-12\">\r\n    <div class=\"card defaultCardStyle\">\r\n      <h1 class=\"text-center headerFont fireFont\"><strong>Current Services In Progress</strong></h1>\r\n      <table class=\"table\">\r\n        <thead class=\"goldBack\">\r\n          <tr>\r\n            <th>Mechanic</th>\r\n            <th>Status</th>\r\n            <th>Vehicle</th>\r\n            <th>Location</th>\r\n            <th>Ordered</th>\r\n            <th>Recommended</th>\r\n            <th>Created</th>\r\n          </tr>\r\n        </thead>\r\n        <tbody>\r\n          <tr *ngFor=\"let order of pendingServices\" (click)=\"selectOrder(order._id)\" class=\"rowStyle\">\r\n            <td>{{order.cusAttendant}}</td>\r\n            <td>{{order.status | uppercase}}</td>\r\n            <td>{{order.cusCarMake}} {{order.cusCarModel}}, {{order.cusCarYear}}</td>\r\n            <td>{{order.location}}</td>\r\n            <td>\r\n              <div *ngFor=\"let service of order.cusCarService\">\r\n                <div *ngIf=\"service.status == 'pending' || service.status == 'complete'\">{{service.type}}</div>\r\n              </div>\r\n            </td>\r\n            <td>\r\n              <div *ngFor=\"let recService of order.cusCarService\">\r\n                <div *ngIf=\"recService.status == 'recommended'\">{{recService.type}}</div>\r\n              </div>\r\n            </td>\r\n            <td>{{order.created_at | date:\"medium\"}}</td>\r\n          </tr>\r\n        </tbody>\r\n      </table>\r\n    </div>\r\n  </div>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -1072,7 +1180,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/customer-portal/customer-portal.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<app-customer-header></app-customer-header>\r\n<div class=\"container\">\r\n  <div class=\"row\">\r\n    <div class=\"col-md-12\">\r\n      <app-customer-pending-work></app-customer-pending-work>\r\n    </div>\r\n  </div>\r\n</div>\r\n"
+module.exports = "<app-customer-header></app-customer-header>\r\n<div class=\"container\">\r\n  <div class=\"row\">\r\n    <div class=\"col-md-12\">\r\n      <app-customer-pending-work></app-customer-pending-work>\r\n      <app-customer-closed-work></app-customer-closed-work>\r\n    </div>\r\n  </div>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -2447,6 +2555,150 @@ UserSignupComponent = __decorate([
 
 var _a, _b;
 //# sourceMappingURL=user-signup.component.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/app/view-customer-closed-order/view-customer-closed-order.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, ".viewCustomerOrderStyle {\r\n  background: rgb(245,245,245);\r\n  padding: 10px;\r\n  margin-top: 15px;\r\n  border-style: solid;\r\n  border-width: 2px;\r\n  border-color: black;\r\n}\r\n\r\n.headerColor {\r\n  color: rgb(0,62,83);\r\n}\r\n.greenColor {\r\n  color: green;\r\n}\r\n\r\n.yellowColor {\r\n  color: rgb(228,188,54);\r\n}\r\n\r\n.blueColor {\r\n  color: blue;\r\n}\r\n\r\n.redColor {\r\n  color: rgb(186,0,1);\r\n}\r\n\r\n.infoColor {\r\n  color: rgb(23,119,148);\r\n}\r\n\r\n\r\n.pendingColor {\r\n  color: rgb(0,23,164);\r\n}\r\n\r\n.inProgressColor {\r\n  color: rgb(255,102,2);\r\n}\r\n\r\n.partsColor {\r\n  color: rgb(196,0,123);\r\n}\r\n\r\n.customerColor {\r\n  color: rgb(255,0,2);\r\n}\r\n\r\n.workCompletedColor {\r\n  color: rgb(22,172,2);\r\n}\r\n.closedColor{\r\n  color: rgb(99,0,164);\r\n}\r\n.descStyle{\r\n  color: black;\r\n}\r\n.hoverItem:hover{\r\n  background: rgb(228,188,54);\r\n  cursor: pointer;\r\n  border-style: solid;\r\n  border-width: 2px;\r\n  border-color: rgb(0,62,83);\r\n}\r\n.clickedClass{\r\n  background: rgb(179,201,196);\r\n  cursor: pointer;\r\n  border-style: solid;\r\n  border-width: 2px;\r\n  border-color: rgb(0,62,83);\r\n}\r\n.approveSelectedBtn {\r\n  margin-right: 5px;\r\n}\r\n.declineBtn {\r\n  margin-right: 5px;\r\n}\r\n.bodyFont {\r\n  font-family: 'Bree Serif', serif;\r\n}\r\n.bodyColor {\r\n  color: rgb(29,89,179);\r\n}\r\n.priceFont {\r\n  font-family: 'Tinos', serif;\r\n}\r\n.statusFont {\r\n  font-family: 'Roboto Slab', serif;\r\n}\r\n", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/view-customer-closed-order/view-customer-closed-order.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<app-customer-header></app-customer-header>\n<div class=\"container\">\n  <div class=\"row\">\n    <div class=\"col-md-6\">\n      <div class=\"card viewCustomerOrderStyle\">\n        <h1 class='text-center headerColor headerFont'><strong>View Service Order</strong></h1>\n        <hr>\n        <div *ngIf=\"orderInfo?.status =='closed'\">\n          <h3 class=\"text-center closedColor headerFont\"><strong>STATUS: {{orderInfo?.status |uppercase}}</strong></h3>\n        </div>\n        <hr>\n        <div *ngIf=\"recommendServiceArr.length > 0\">\n          <div class=\"text-center\">\n            <h4 class=\"pendingColor headerFont\"><u><strong>Recommended Services</strong></u></h4>\n              <h5 class='text-center customerColor headerFont'>(Please select services below)</h5>\n            <div *ngFor=\"let service of orderInfo?.cusCarService\">\n              <h5 *ngIf=\"service.status == 'recommended'\" class=\"infoColor hoverItem bodyFont\"><li><strong><u>{{service.type}} (${{service.price}})-</u></strong><p class=\"descStyle\">{{service.desc}}</p></li></h5>\n            </div>\n          </div>\n          <hr>\n        </div>\n        <div class=\"text-center\">\n          <h3 class=\"headerColor headerFont\"><strong><u>General Info</u></strong></h3>\n          <h5 class=\"bodyFont\">Make: {{orderInfo?.cusCarMake}}</h5>\n          <h5 class=\"bodyFont\">Model: {{orderInfo?.cusCarModel}}</h5>\n          <h5 class=\"bodyFont\">Year: {{orderInfo?.cusCarYear}}</h5>\n          <h5 class=\"bodyFont\">Attendant: {{orderInfo?.cusAttendant}}</h5>\n          <h5 class=\"bodyFont\">Location: {{orderInfo?.location}}</h5>\n          <h5 class=\"bodyFont\">Created: {{orderInfo?.created_at | date:\"medium\"}}</h5>\n          <h5 class=\"bodyFont\">Last Update: {{orderInfo?.updatedAt | date:\"medium\"}}</h5>\n        </div>\n        <hr>\n        <div class=\"text-center\">\n          <h3 class=\"headerColor headerFont\"><strong><u>Current Services</u></strong></h3>\n            <div *ngFor=\"let service of orderInfo?.cusCarService\" >\n              <h5 class=\"greenColor statusFont\"><li *ngIf=\"service.status == 'complete'\">{{service.status | uppercase}}: {{service.type}}</li></h5>\n            </div>\n        </div>\n        <div *ngIf=\"declinedServiceArr.length > 0\">\n          <hr>\n          <div class=\"text-center\">\n            <h3 class=\"headerColor headerFont\"><strong><u>Declined Recommendations</u></strong></h3>\n            <div *ngFor=\"let service of orderInfo?.cusCarService\" >\n              <h5 class=\"yellowColor statusFont\"><li *ngIf=\"service.status == 'declined'\">{{service.status | uppercase}}: {{service.type}}</li></h5>\n            </div>\n          </div>\n        </div>\n      </div>\n    </div>\n    <div class=\"col-md-6\">\n      <div class=\"card viewCustomerOrderStyle\">\n        <h1 class='text-center headerColor headerFont'><strong>Cost Breakdown</strong></h1>\n        <hr>\n        <div class=\"text-center\">\n          <h3 class=\"headerColor headerFont\"><strong><u>Completed Services</u></strong></h3>\n            <div *ngFor=\"let service of orderInfo?.cusCarService\" >\n              <h5 class=\"greenColor priceFont\"><li *ngIf=\"service.status == 'complete'\">{{service.type}}- ${{service.price | number: \"1.2-2\"}}</li></h5>\n            </div>\n        </div>\n        <hr>\n        <div class=\"text-center\">\n          <h3 class=\"headerColor headerFont\"><strong><u>Tax</u></strong></h3>\n          <h5 class=\"greenColor priceFont\">Current Services @ 7.5%: ${{taxCurrent | number: \"1.2-2\"}}</h5>\n          <hr>\n          <h3 class=\"headerColor headerFont\"><strong><u>Total</u></strong></h3>\n          <h5 class=\"greenColor priceFont\">Current Services: ${{totalCost | number: \"1.2-2\"}}</h5>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n"
+
+/***/ }),
+
+/***/ "../../../../../src/app/view-customer-closed-order/view-customer-closed-order.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ViewCustomerClosedOrderComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__customer_service_order_service__ = __webpack_require__("../../../../../src/app/customer-service-order.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__data_service__ = __webpack_require__("../../../../../src/app/data.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+var ViewCustomerClosedOrderComponent = (function () {
+    function ViewCustomerClosedOrderComponent(customerServiceOrderService, dataService, router) {
+        this.customerServiceOrderService = customerServiceOrderService;
+        this.dataService = dataService;
+        this.router = router;
+        this.orderId = "";
+        this.currentServiceArr = [];
+        this.recommendServiceArr = [];
+        this.declinedServiceArr = [];
+        this.currentTotalCost = 0;
+        this.selectedTotalCost = 0;
+        this.totalCurrentAndSelectCost = 0;
+        this.totalCost = 0;
+        this.taxWithSelected = 0;
+        this.taxCurrent = 0;
+        this.selectedArray = [];
+    }
+    ViewCustomerClosedOrderComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.orderId = this.customerServiceOrderService.currentServiceOrderInfo();
+        if (this.orderId == "") {
+            this.router.navigate(["/customerportal"]);
+            return;
+        }
+        this.getOrderInfo(this.orderId);
+        this.customerServiceOrderService.serviceOrderInfo.subscribe(function (id) {
+            _this.getOrderInfo(id);
+        });
+    };
+    ViewCustomerClosedOrderComponent.prototype.getOrderInfo = function (value) {
+        var _this = this;
+        this.dataService.getServiceOrder(this.orderId)
+            .subscribe(function (response) {
+            _this.orderInfo = response[0];
+            _this.currentServiceArr = [];
+            _this.recommendServiceArr = [];
+            console.log(_this.orderInfo);
+            console.log(_this.orderInfo.notes);
+            for (var i = 0; i < response[0].cusCarService.length; i++) {
+                if (response[0].cusCarService[i].status == "complete") {
+                    _this.currentServiceArr.push(response[0].cusCarService[i]);
+                }
+            }
+            for (var i = 0; i < response[0].cusCarService.length; i++) {
+                if (response[0].cusCarService[i].status == "recommended") {
+                    _this.recommendServiceArr.push(response[0].cusCarService[i]);
+                }
+            }
+            for (var i = 0; i < response[0].cusCarService.length; i++) {
+                if (response[0].cusCarService[i].status == "declined") {
+                    _this.declinedServiceArr.push(response[0].cusCarService[i]);
+                }
+            }
+            console.log("LENGTH OF REC: ", _this.recommendServiceArr);
+            if (response[0].status == "waiting on customer" && _this.recommendServiceArr.length == 0) {
+                var updateStatusObj = {
+                    status: "pending"
+                };
+                _this.dataService.updateServiceOrder(_this.orderId, updateStatusObj)
+                    .subscribe(function (res) {
+                    _this.customerServiceOrderService.serviceOrderInfo.next(_this.orderId);
+                });
+            }
+            console.log(_this.currentServiceArr);
+            _this.getCurrentCost();
+        }, function (error) { return console.log(error); });
+    };
+    ViewCustomerClosedOrderComponent.prototype.getCurrentCost = function () {
+        this.currentTotalCost = 0;
+        for (var i = 0; i < this.currentServiceArr.length; i++) {
+            var serviceCost = parseFloat(this.currentServiceArr[i].price);
+            this.currentTotalCost = this.currentTotalCost + serviceCost;
+        }
+        this.getTotalCost();
+    };
+    ViewCustomerClosedOrderComponent.prototype.getTotalCost = function () {
+        this.taxCurrent = 0;
+        this.totalCost = 0;
+        this.taxCurrent = this.currentTotalCost * .075;
+        this.totalCost = this.currentTotalCost + this.taxCurrent;
+    };
+    return ViewCustomerClosedOrderComponent;
+}());
+ViewCustomerClosedOrderComponent = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+        selector: 'app-view-customer-closed-order',
+        template: __webpack_require__("../../../../../src/app/view-customer-closed-order/view-customer-closed-order.component.html"),
+        styles: [__webpack_require__("../../../../../src/app/view-customer-closed-order/view-customer-closed-order.component.css")]
+    }),
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__customer_service_order_service__["a" /* CustomerServiceOrderService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__customer_service_order_service__["a" /* CustomerServiceOrderService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__data_service__["a" /* DataService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__data_service__["a" /* DataService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__angular_router__["a" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__angular_router__["a" /* Router */]) === "function" && _c || Object])
+], ViewCustomerClosedOrderComponent);
+
+var _a, _b, _c;
+//# sourceMappingURL=view-customer-closed-order.component.js.map
 
 /***/ }),
 

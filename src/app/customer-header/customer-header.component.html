@@ -5,6 +5,7 @@
       </div>
       <div *ngIf="isLoggedIn">
         <h1 class="pageHeaderStyle text-center">{{name}}'s Account</h1>
+          <button type="button" routerLink="/customerportal" class="btn btn-outline-primary">Home</button>
           <button type="button" (click)="logOut()" class="btn btn-outline-danger">Logout</button>
       </div>
     </div>

@@ -24,16 +24,14 @@ import { UserSignupComponent } from './user-signup/user-signup.component';
 import { CustomerLandingPageComponent} from"./customer-landing-page/customer-landing-page.component";
 import { CustomerPortalComponent} from"./customer-portal/customer-portal.component";
 import { ViewCustomerServiceOrderComponent } from './view-customer-service-order/view-customer-service-order.component';
+import { ViewCustomerClosedOrderComponent } from './view-customer-closed-order/view-customer-closed-order.component';
 import { AuthGuard } from "./auth-guard.service";
 import { AdminGuard } from "./admin-guard.service";
 import { AddGuard } from "./add-guard.service";
 
 export const routes: Routes = [
 
-  {
-    path: '',
-    component: EmployeeSignInComponent
-  },
+
   {
 
     path: 'landingpage', canActivate: [AuthGuard],
@@ -96,6 +94,10 @@ export const routes: Routes = [
   {
     path: 'viewcustomerserviceorder', canActivate: [AuthGuard],
     component: ViewCustomerServiceOrderComponent
+  },
+  {
+    path: 'viewcustomerclosedeorder', canActivate: [AuthGuard],
+    component: ViewCustomerClosedOrderComponent
   },
   {
     path: 'landingpage',
