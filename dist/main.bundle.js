@@ -1422,7 +1422,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "", ""]);
+exports.push([module.i, ".defaultCardStyle{\r\n  background: rgb(245,245,245);\r\n  padding: 10px;\r\n  margin-top: 15px;\r\n  border-style: solid;\r\n  border-width: 2px;\r\n  border-color: black;\r\n}\r\n.headerColor {\r\n  color: rgb(0,62,83);\r\n}\r\n", ""]);
 
 // exports
 
@@ -1435,7 +1435,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/customer/customer.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<app-header></app-header>\r\n<div class=\"container\">\r\n  <div class=\"row\">\r\n    <div class=\"col-md-12\">\r\n      <h3 class='text-center'>Customer Info</h3>\r\n      <h5>Name: {{fullName}}</h5>\r\n      <h5>Phone Number: {{phoneNumber}}</h5>\r\n      <h5>Email: {{email}}</h5>\r\n    </div>\r\n  </div>\r\n</div>\r\n"
+module.exports = "<app-header></app-header>\r\n<div class=\"container\">\r\n  <div class=\"row\">\r\n    <div class=\"col\"></div>\r\n    <div class=\"col-md-7\">\r\n      <div class=\"card defaultCardStyle\">\r\n        <h3 class='text-center headerFont headerColor'><strong>Customer Info</strong></h3>\r\n        <h5><span class=\"headerColor\">Name: </span>{{fullName}}</h5>\r\n        <h5><span class=\"headerColor\">Phone Number: </span>{{phoneNumber}}</h5>\r\n        <h5><span class=\"headerColor\">Email: </span>{{email}}</h5>\r\n      </div>\r\n    </div>\r\n    <div class=\"col\"></div>\r\n  </div>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -1725,7 +1725,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/employee-sign-in/employee-sign-in.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"header text-center jumbotron introHeader jumbrotron-fluid\">\r\n    <div class=\"container\">\r\n        <h1 class=\"pageHeaderStyle text-center\">The Garage App</h1>\r\n    </div>\r\n</div>\r\n<div class=\"container\">\r\n  <div class=\"row\">\r\n    <div class=\"col\"></div>\r\n    <div class=\"col-md-4\">\r\n      <div class=\"card defaultCardStyle\">\r\n        <h2 class=\"text-center headerFont\"><strong>Please sign in</strong></h2>\r\n        <form class=\"form-signin\" (ngSubmit)=\"onSubmit(f)\" #f=\"ngForm\">\r\n          <div class=\"form-group\">\r\n            <label for=\"inputEmail\" class=\"sr-only\">Email address</label>\r\n            <input type=\"email\" id=\"inputEmail\" ngModel name=\"email\" class=\"form-control\" placeholder=\"Email address\" required autofocus>\r\n          </div>\r\n          <div class=\"form-group\">\r\n            <label for=\"inputPassword\" class=\"sr-only\">Password</label>\r\n            <input type=\"password\" id=\"inputPassword\" ngModel name=\"password\" class=\"form-control\" placeholder=\"Password\" required>\r\n          </div>\r\n          <button class=\"btn btn-lg btn-primary  btn-block btnSmallMargin\" type=\"submit\">Sign in</button>\r\n          <div class=\"alert alert-danger btnSmallMargin\" *ngIf=\"errorMessage != ''\">\r\n            <p>{{errorMessage}}</p>\r\n          </div>\r\n        </form>\r\n      </div>\r\n    </div>\r\n    <div class=\"col\"></div>\r\n  </div>\r\n</div>\r\n"
+module.exports = "<div class=\"header text-center jumbotron introHeader jumbrotron-fluid\">\r\n    <div class=\"container\">\r\n        <h1 class=\"pageHeaderStyle text-center\">The Garage App</h1>\r\n    </div>\r\n</div>\r\n<div class=\"container\">\r\n  <div class=\"row\">\r\n    <div class=\"col\"></div>\r\n    <div class=\"col-md-4\">\r\n      <div class=\"card defaultCardStyle\">\r\n        <h2 class=\"text-center headerFont\"><strong>Please sign in</strong></h2>\r\n        <form class=\"form-signin\" (ngSubmit)=\"onSubmit(f)\" #f=\"ngForm\">\r\n          <div class=\"form-group\">\r\n            <label for=\"inputEmail\" class=\"sr-only\">Email address</label>\r\n            <input type=\"email\" id=\"inputEmail\" ngModel name=\"email\" class=\"form-control\"  placeholder=\"Email address\" required autofocus>\r\n          </div>\r\n          <div class=\"form-group\">\r\n            <label for=\"inputPassword\" class=\"sr-only\">Password</label>\r\n            <input type=\"password\" id=\"inputPassword\" ngModel name=\"password\"  class=\"form-control\" placeholder=\"Password\" required>\r\n          </div>\r\n          <button class=\"btn btn-lg btn-primary  btn-block btnSmallMargin\" type=\"submit\">Sign in</button>\r\n          <div class=\"alert alert-danger btnSmallMargin\" *ngIf=\"errorMessage != ''\">\r\n            <p>{{errorMessage}}</p>\r\n          </div>\r\n        </form>\r\n      </div>\r\n    </div>\r\n    <div class=\"col\"></div>\r\n  </div>\r\n</div>\r\n"
 
 /***/ }),
 

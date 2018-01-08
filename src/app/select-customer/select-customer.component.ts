@@ -17,7 +17,7 @@ export class SelectCustomerComponent implements OnInit {
   ngOnInit() {
   }
 
-  errorMsg = ""
+  errorMsg = "";
 
   onSubmit(form) {
     console.log(form.value.custSearchPhone);
